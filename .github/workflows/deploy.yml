@@ -1,6 +1,8 @@
 name: deploy
 
 on:
+  # Trigger explictly from Github interface:
+  workflow_dispatch:
   # Trigger the workflow on push to main branch
   push:
     branches:
