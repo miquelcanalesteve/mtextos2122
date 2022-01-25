@@ -54,8 +54,6 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Redes neuronales recurrentes" href="bloque2_recurrent.html" />
-    <link rel="prev" title="Revisión histórica" href="bloque2_historia.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -104,7 +102,7 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="bloque1.html">
    Introducción a la minería de textos
@@ -147,49 +145,19 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="bloque2.html">
    Técnicas para la minería de textos
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="bloque2_historia.html">
      Revisión histórica
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Representaciones de palabras y oraciones
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="bloque2_recurrent.html">
-     Redes neuronales recurrentes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="bloque2_transformer.html">
-     La arquitectura transformer
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="bloque2_pretrained.html">
-     Modelos preentrenados
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="bloque2_otros.html">
-     Otras técnicas para la minería de textos
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="bloque2_practica.html">
-     Práctica. Lectura y documentación del código de un extractor de entidades
     </a>
    </li>
   </ul>
@@ -465,10 +433,10 @@
 <p>Una opción más elaborada pasa por usar una red neuronal recurrente con una capa oculta entrenada para predecir la siguiente palabra. Una vez finalizado el entrenamiento, se podrían utilizar las representaciones de estado de la capa oculta como embeddings de las palabras. A diferencia de CBOW, los embeddings aquí no son estáticos (incontextuales): dada una frase en particular, se puede ir suministrando a la red recurrente los embeddings de las palabras anteriores y obtener una representación vectorial de la siguiente palabra en el contexto anterior concreto de dicha frase.</p></p>
 <p>Más adelante, veremos arquitecturas aún más avanzadas (como BERT) que permiten obtener embeddings contextuales más profundos.
 </div>
-<p>De los embeddings aprendidos con word2vec se pueden obtener ciertas analogías interesantes con simples operaciones aritméticas sobre los embeddings. Así, si consideramos el embedding más cercano al vector resultante de calcular embedding(“France”) - embedding(“Paris”) + embedding(“Rome”), este resulta ser el correspondiente a “Italy”. Otras analogías interesantes se pueden ver en la figura <a class="reference internal" href="#analogia-word2vec"><span class="std std-numref">Fig. 1</span></a>.</p>
+<p>De los embeddings aprendidos con word2vec se pueden obtener ciertas analogías interesantes con simples operaciones aritméticas sobre los embeddings. Así, si consideramos el embedding más cercano al vector resultante de calcular embedding(“France”) - embedding(“Paris”) + embedding(“Rome”), este resulta ser el correspondiente a “Italy”. Otras analogías interesantes se pueden ver en la figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">analogia-word2vec</span></code>.</p>
 <div class="figure align-default" id="analogia-word2vec">
 <a class="reference internal image-reference" href="_images/mikolov-word2vec-analogies.png"><img alt="_images/mikolov-word2vec-analogies.png" src="_images/mikolov-word2vec-analogies.png" style="height: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Analogías mostradas en el trabajo de <a class="reference external" href="https://arxiv.org/pdf/1301.3781.pdf">Mikolov et al.</a> de 2013.</span><a class="headerlink" href="#analogia-word2vec" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Analogías mostradas en el trabajo de <a class="reference external" href="https://arxiv.org/pdf/1301.3781.pdf">Mikolov et al.</a> de 2013.</span><a class="headerlink" href="#analogia-word2vec" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="ecuaciones-del-modelo-cbow">
@@ -539,21 +507,7 @@ Learning) de Stanford.</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="bloque2_historia.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Revisión histórica</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="bloque2_recurrent.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Redes neuronales recurrentes</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
             
         </div>
