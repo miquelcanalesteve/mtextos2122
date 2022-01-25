@@ -2,7 +2,7 @@
 Materiales de Minería de Textos
 ===============================
 
-Universitat d'Alacant, curso 2020–2021
+Universitat d'Alacant, curso 2021–2022
 --------------------------------------
 
 *«This is an exciting time to be working in speech and language processing», Daniel Jurafsky, James H. Martin, 2009*
@@ -20,9 +20,7 @@ Novedades
 :widths: 10 90
 :class: tablita
 
-* - 23 Ene 
-  - El curso comienza el día 10 de febrero. Por cuestiones organizativas, habrá algunas pequeñas diferencias entre el tipo de sesión (teórica o práctica) que figura en la ficha de la asignatura y la que se impartirá en cada momento. El número total de horas de teoría y prácticas impartido a final de curso se corresponderá en cualquier caso con el correcto.
-* - 22 Ene 
+* - 25 Ene 
   - Se ha publicado la primera versión de los materiales de la asignatura. Estos materiales pueden pueden ir cambiando antes de la clase en la que se impartan.
 
 `````
@@ -38,7 +36,7 @@ Para obtener información sobre la evaluación de la asignatura puedes consultar
 [borja url]: https://cvnet.cpd.ua.es/curriculum-breve/es/navarro-colorado-francisco-de-borja/9307
 [yoan url]: https://cvnet.cpd.ua.es/curriculum-breve/es/gutierrez-vazquez-yoan/49618
 [japerez_twitter]: https://twitter.com/japer3z
-[guía]: https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wCodEst=D109&wcodasi=43459&wlengua=es&scaca=2020-21
+[guía]: https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wCodEst=D109&wcodasi=43459&wlengua=es&scaca=2021-22
 
 - La asistencia a las clases en principio no es obligatoria (en el sentido de que se vaya a requerir un número mínimo de asistencias para poder aprobar la asignatura), pero sí que es recomendable una presencia constante. La asistencia la puedes realizar tanto presencialmente (en las semanas que te asigne la universidad a través de la aplicación de Docencia Dual) o telemáticamente (en cualquiera de las semanas de curso, incluso en las que en principio la aplicación te hubiera permitido asistir presencialmente). Si tienes alguna ocupación que te impide asistir a todas o gran parte de las clases, incluso online, envía un justificante escaneado al profesor coordinador a través del sistema de tutoría de UACloud.
 - La visita (virtual en este curso) a los profesores durante sus horas de tutoría no puede ser obligatoria por cuestiones normativas, pero es también muy recomendable, ya que es la oportunidad de recibir supervisión sobre tus conocimientos de la materia o la calidad de los trabajos que has desarrollado. Reserva turno a través de UACloud con anterioridad y conéctate a la sala virtual allí indicada. Si el horario no es compatible con tu agenda, escribe al profesor e intentará encontrar un hueco fuera de dicho horario para atenderte.
@@ -46,7 +44,7 @@ Para obtener información sobre la evaluación de la asignatura puedes consultar
 
 El [código fuente][fuente] de estas páginas, escrito en MyST para Jupyter Book, está disponible en Github.
 
-[fuente]: https://github.com/jaspock/mtextos
+[fuente]: https://github.com/jaspock/mtextos2122
 
 Puedes obtener una copia local de estas páginas (por ejemplo, para poder consultarlas sin conexión) ejecutando::
 
