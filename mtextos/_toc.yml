@@ -19,7 +19,7 @@
 #    - file: bloque2_otros
 #    - file: bloque2_practica
 - file: bloque3
-  sections:
+#  sections:
 #    - file: bloque3_t1_aplicaciones
 #    - file: bloque3_t2_subaplicaciones-benchmarks
 #    - file: bloque3_t2.1_analisis_sentimientos.md
