@@ -1,0 +1,578 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Representaciones de palabras y oraciones &#8212; Minería de Textos</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Redes neuronales recurrentes" href="bloque2_recurrent.html" />
+    <link rel="prev" title="Revisión histórica" href="bloque2_historia.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo-master-ca.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Minería de Textos</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Materiales de Minería de Textos
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="bloque1.html">
+   Introducción a la minería de textos
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_1Introduccion.html">
+     Minería de textos y procesamiento del lenguaje natural.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_2CategorialSintactico.html">
+     Análisis categorial y sintáctico
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_Practica1.html">
+     Fundamentos de PLN. Práctica 1.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_3AnalisisSemantico.html">
+     Análisis semántico
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_Practica2.html">
+     Fundamentos de PLN. Práctica 2. Análisis semántico.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_4AnalisisSemanticoVectorial.html">
+     Análisis semántico vectorial
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="bloque2.html">
+   Técnicas para la minería de textos
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_historia.html">
+     Revisión histórica
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Representaciones de palabras y oraciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_recurrent.html">
+     Redes neuronales recurrentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_transformer.html">
+     La arquitectura transformer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_pretrained.html">
+     Modelos preentrenados
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_otros.html">
+     Otras técnicas para la minería de textos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_practica.html">
+     Práctica. Lectura y documentación del código de un extractor de entidades
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="bloque3.html">
+   Aplicaciones de la minería de textos
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t1_aplicaciones.html">
+     T1. Aplicaciones generales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t2_subaplicaciones-benchmarks.html">
+     T2. Aplicaciones específicas y Benchmacks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t2.1_analisis_sentimientos.html">
+     T2.1. Aplicaciones específicas. Análisis de Sentimientos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t3.1_metricas.html">
+     T3. Métricas de Evaluación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t4_huggingface.html">
+     T4. Centralización de datasets y modelos: Huggingface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t5_automl.html">
+     T5. Auto Machine Learning(AutoML)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t5.1_autogoal.html">
+     T5.1. AutoGOAL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p1_SA-Pipeline-Reviews.html">
+     P1.1. Pipeline simple
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p2_SA-Transformers-Basic.html">
+     P1.2. APIs Transformers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p3_SA-Transformers-Training-FineTuning.html">
+     P2. Reajustar modelos Transformers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p4_SA-Transformers-Training-Custom.html">
+     P3. Composición de vectores de características
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p5-SA-Ensemble.html">
+     P4. Ensemble de pipelines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p6_SA-AutoGOAL.html">
+     P5. Auto Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_ev.html">
+     Ev. Evaluación del bloque 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="content.html">
+   Content in Jupyter Book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">Toggle navigation</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/bloque2_embeddings.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-a-los-embeddings-de-palabras">
+   Introducción a los embeddings de palabras
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ecuaciones-del-modelo-cbow">
+   Ecuaciones del modelo CBOW
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analisis-de-las-ecuaciones">
+     Análisis de las ecuaciones
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizacion-de-embeddings">
+   Visualización de embeddings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#colecciones-de-embeddings-para-palabras-y-frases">
+   Colecciones de embeddings para palabras y frases
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Representaciones de palabras y oraciones</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-a-los-embeddings-de-palabras">
+   Introducción a los embeddings de palabras
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ecuaciones-del-modelo-cbow">
+   Ecuaciones del modelo CBOW
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analisis-de-las-ecuaciones">
+     Análisis de las ecuaciones
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizacion-de-embeddings">
+   Visualización de embeddings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#colecciones-de-embeddings-para-palabras-y-frases">
+   Colecciones de embeddings para palabras y frases
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="representaciones-de-palabras-y-oraciones">
+<h1>Representaciones de palabras y oraciones<a class="headerlink" href="#representaciones-de-palabras-y-oraciones" title="Permalink to this headline">¶</a></h1>
+<p>Un aspecto fundamental en el procesamiento del lenguaje natural es utilizar representaciones numéricas adecuadas de los textos en los diferentes niveles (subpalabras, palabras, frases,  párrafos, etc.). En este apartado nos centraremos especialmente en las palabras y en uno de los algoritmos más utilizados para obtener dichas representaciones conocidas como <em>word embeddings</em>.</p>
+<div class="section" id="introduccion-a-los-embeddings-de-palabras">
+<h2>Introducción a los embeddings de palabras<a class="headerlink" href="#introduccion-a-los-embeddings-de-palabras" title="Permalink to this headline">¶</a></h2>
+<p>Para comenzar con el tema vamos a seguir la <a class="reference external" href="https://jalammar.github.io/illustrated-word2vec/">guía ilustrada</a> sobre embeddings de palabras de Jay Alammar. Esta guía describe la familia de algoritmos conocidos como <em>word2vec</em>; este conjunto de algoritmos lo forman <em>contextual bag of words</em> (CBOW) y <em>skip-gram</em>. Aquí nos centraremos en el primero, pero las ideas en las que se basa el segundo son muy similares.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Los algoritmos de word2vec no son la única manera de obtener embeddings de palabras. Anteriormente, ya se habían propuesto otras formas de obtenerlos.</p>
+<p>Se puede utilizar una red neuronal <em>feedforward</em> con una capa oculta que usa a la entrada los embeddings de las <em>n</em> palabras anteriores y emite a la salida la probabilidad de la siguiente palabra. En este caso, las activaciones de la capa oculta se podrían tomar como los embeddings de dicha palabra. A diferencia de CBOW, aquí habría una capa oculta y se usarían solo las palabras anteriores, aunque es trivial adaptar la red para que use a la entrada un contexto de palabras anteriores y posteriores.</p>
+<p>Una opción más elaborada pasa por usar una red neuronal recurrente con una capa oculta entrenada para predecir la siguiente palabra. Una vez finalizado el entrenamiento, se podrían utilizar las representaciones de estado de la capa oculta como embeddings de las palabras. A diferencia de CBOW, los embeddings aquí no son estáticos (incontextuales): dada una frase en particular, se puede ir suministrando a la red recurrente los embeddings de las palabras anteriores y obtener una representación vectorial de la siguiente palabra en el contexto anterior concreto de dicha frase.</p></p>
+<p>Más adelante, veremos arquitecturas aún más avanzadas (como BERT) que permiten obtener embeddings contextuales más profundos.
+</div>
+<p>De los embeddings aprendidos con word2vec se pueden obtener ciertas analogías interesantes con simples operaciones aritméticas sobre los embeddings. Así, si consideramos el embedding más cercano al vector resultante de calcular embedding(“France”) - embedding(“Paris”) + embedding(“Rome”), este resulta ser el correspondiente a “Italy”. Otras analogías interesantes se pueden ver en la figura <a class="reference internal" href="#analogia-word2vec"><span class="std std-numref">Fig. 1</span></a>.</p>
+<div class="figure align-default" id="analogia-word2vec">
+<a class="reference internal image-reference" href="_images/mikolov-word2vec-analogies.png"><img alt="_images/mikolov-word2vec-analogies.png" src="_images/mikolov-word2vec-analogies.png" style="height: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Analogías mostradas en el trabajo de <a class="reference external" href="https://arxiv.org/pdf/1301.3781.pdf">Mikolov et al.</a> de 2013.</span><a class="headerlink" href="#analogia-word2vec" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="ecuaciones-del-modelo-cbow">
+<h2>Ecuaciones del modelo CBOW<a class="headerlink" href="#ecuaciones-del-modelo-cbow" title="Permalink to this headline">¶</a></h2>
+<p>Las ecuaciones que conforman el modelo CBOW están descritas en las secciones 4.1. y 4.2 de estas <a class="reference external" href="https://web.stanford.edu/class/cs224n/readings/cs224n-2019-notes01-wordvecs1.pdf">notas de clase</a> del curso <a class="reference external" href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1204/">CS224n</a> (Natural Language Processing with Deep
+Learning) de Stanford.</p>
+<div class="section" id="analisis-de-las-ecuaciones">
+<h3>Análisis de las ecuaciones<a class="headerlink" href="#analisis-de-las-ecuaciones" title="Permalink to this headline">¶</a></h3>
+<p>Resumiendo lo que allí se explica, una vez fijado el vocabulario, tenemos dos embeddings diferentes para cada palabra. Estos embeddings se agrupan en las matrices <span class="math notranslate nohighlight">\(\cal{V}\)</span> (para los embeddings de entrada) y <span class="math notranslate nohighlight">\(\cal{U}\)</span> (embeddings de salida) en las que la fila <span class="math notranslate nohighlight">\(i\)</span>-esima o la columna <span class="math notranslate nohighlight">\(i\)</span>-ésima, respectivamente, son la representación vectorial de la palabra <span class="math notranslate nohighlight">\(i\)</span>-esima del vocabulario; esta diferencia en la organización de los valores por filas o columnas simplemente sirve para que los productos matriciales sean más cómodos de realizar, pero no tiene ninguna otra justificación. La representación de la palabra <span class="math notranslate nohighlight">\(i\)</span>-ésima según la matriz considerada se denota por <span class="math notranslate nohighlight">\(\boldsymbol{v}_i\)</span> o bien <span class="math notranslate nohighlight">\(\boldsymbol{u}_i\)</span>. La otra dimensión de estas dos matrices es el tamaño de los embeddings <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>El modelo se entrena para predecir la palabra central en base a las palabras del contexto (por ejemplo, en base a las dos palabras a su izquierda y a las dos palabras a su derecha). Todas las palabras del contexto se representan con un único vector de tamaño <span class="math notranslate nohighlight">\(n\)</span>, denotado por <span class="math notranslate nohighlight">\(\hat{\boldsymbol{v}}\)</span>, resultado de promediar los embeddings correspondientes a cada una de ellas según <span class="math notranslate nohighlight">\(\cal{V}\)</span>. A continuación, el algoritmo CBOW calcula el producto <span class="math notranslate nohighlight">\(\boldsymbol{z} = \hat{\boldsymbol{v}} \, \cal{U}\)</span>. El resultado de esta multiplicación, <span class="math notranslate nohighlight">\(\boldsymbol{z}\)</span>, es un vector de tamaño <span class="math notranslate nohighlight">\(n\)</span> donde el elemento <span class="math notranslate nohighlight">\(i\)</span>-ésimo es el producto escalar del vector representante del contexto de entrada <span class="math notranslate nohighlight">\(\hat{\boldsymbol{v}}\)</span> y el embedding de la palabra <span class="math notranslate nohighlight">\(i\)</span>-ésima según <span class="math notranslate nohighlight">\(\cal{U}\)</span>. Es importante destacar que el producto escalar puede usarse como una medida de <a class="reference external" href="https://math.stackexchange.com/a/689078">similitud entre dos vectores</a>. Por ello, si <span class="math notranslate nohighlight">\(\boldsymbol{z}_i &gt; \boldsymbol{z}_j\)</span>, podemos concluir que el embedding promediado que representa el contexto de la entrada es más parecido al embedding de salida (según la matriz <span class="math notranslate nohighlight">\(\cal{U}\)</span>) de la palabra <span class="math notranslate nohighlight">\(i\)</span>-ésima que al de la palabra <span class="math notranslate nohighlight">\(j\)</span>-ésima. Para poder interpretar los valores de <span class="math notranslate nohighlight">\(\boldsymbol{z}\)</span> como probabilidades, solo queda normalizarlos mediante la función softmax para obtener <span class="math notranslate nohighlight">\(\hat{\boldsymbol{y}}\)</span>. A los valores de <span class="math notranslate nohighlight">\(\boldsymbol{z}\)</span>, previos a la normalización, se les conoce normalmente como <em>logits</em>.</p>
+<p>La función de error compara la salida producida por la red con el vector one-hot correspondiente a la palabra central. Para que este error sea lo menor posible, el elemento de <span class="math notranslate nohighlight">\(\hat{\boldsymbol{y}}\)</span> correspondiente al índice de la palabra central ha de ser lo mayor posible, y esto solo se consigue si el vector representante de la entrada <span class="math notranslate nohighlight">\(\hat{\boldsymbol{v}}\)</span> (y, por ende, los embeddings de las palabras del contexto) es parecido al embedding de salida de la palabra central. Vemos cómo de esta manera los embeddings de las palabras del contexto y de la palabra central se irán acercando durante el entrenamiento en ambas matrices.</p>
+<p>Dado que la salida deseada <span class="math notranslate nohighlight">\(\boldsymbol{y}\)</span> es un vector one-hot, si asumimos que la palabra central tiene por índice <span class="math notranslate nohighlight">\(c\)</span>, la entropia cruzada que define la función de pérdida entre este vector y la salida de la red es simplemente <span class="math notranslate nohighlight">\(J = - \text{log}(\hat{y}_c)\)</span>, que se puede expresar de forma que dependa de los embeddings contextuales de entrada y del embedding de salida <span class="math notranslate nohighlight">\(\boldsymbol{u}_c\)</span> (para poder así calcular las derivadas parciales y actualizar esos embeddings mediante descenso por gradiente) sustituyendo <span class="math notranslate nohighlight">\(\hat{\boldsymbol{y}}_c\)</span> y aplicando estas propiedades de los logaritmos:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\log a/b &amp;=&amp; \log a - \log b \\[1.5ex]
+\log e^a &amp;=&amp; a
+\end{split}\]</div>
+<p>Tras el entrenamiento del modelo CBOW se suelen considerar los embeddings de <span class="math notranslate nohighlight">\(\cal{V}\)</span> como los representantes de las palabras a usar en la tarea de aprendizaje principal, aunque en principio también podrían usarse los de <span class="math notranslate nohighlight">\(\cal{U}\)</span>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Es recomendable que amplíes tus conocimientos sobre la <a class="reference external" href="https://towardsdatascience.com/cross-entropy-loss-function-f38c4ec8643e">entropia</a> y la <a class="reference external" href="https://datascience.stackexchange.com/a/20301">entropía cruzada</a> siguiendo estos enlaces, ya que son conceptos fundamentales en aprendizaje automático, en general, y procesamiento del lenguaje natural, en particular.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Dado que en la función de error necesitamos calcular el logaritmo de una probabilidad, es habitual usar al final de la red neuronal la función log_softmax en lugar de softmax, que aunque conceptualmente podemos ver como la misma función con la aplicación final de un logaritmo, tiene una implementación más eficiente y numericamente estable.</p>
+</div>
+</div>
+</div>
+<div class="section" id="visualizacion-de-embeddings">
+<h2>Visualización de embeddings<a class="headerlink" href="#visualizacion-de-embeddings" title="Permalink to this headline">¶</a></h2>
+<p>Mediante la herramienta <a class="reference external" href="https://projector.tensorflow.org/">Embedding Projector</a> vamos a explorar visualmente la distribución de las palabras en el espacio de embeddings.</p>
+<p>La herramienta tiene varios paneles:</p>
+<ul class="simple">
+<li><p>El panel de datos en el que seleccionamos los datos a examinar; nos vamos a centrar en el conjunto <em>Word2Vec All</em> (embeddings de dimensión 200 para unas 71000 palabras).</p></li>
+<li><p>El panel de proyección en el que se selecciona la técnica de reducción de dimensionalidad utilizada para representar los datos en un espacio de bi o tridimensional; podemos empezar por seleccionar PCA (<em>principal component analysis</em>), que es más rápida.</p></li>
+<li><p>El panel de visualización en el que se muestran los embeddings.</p></li>
+<li><p>El panel de inspección en el que podemos introducir una palabra y ver la lista de sus vecinos más cercanos.</p></li>
+</ul>
+<p>Para visualizar sesgos en las distribuciones podemos ir al panel de proyección y en <em>Custom</em> elegir el embedding de una palabra para el lado izquierdo y otro para el derecho. En el panel de <em>bookmarks</em> (abajo a la derecha) puedes encontrar un ejemplo ya creado. La expresión regular para una palabra exacta es /^bad$/, por ejemplo.</p>
+</div>
+<div class="section" id="colecciones-de-embeddings-para-palabras-y-frases">
+<h2>Colecciones de embeddings para palabras y frases<a class="headerlink" href="#colecciones-de-embeddings-para-palabras-y-frases" title="Permalink to this headline">¶</a></h2>
+<p>Existen colecciones como <a class="reference external" href="https://fasttext.cc/">fastText</a>, que incluyen embeddings para dos millones de palabras en inglés (obtenidos procesando un corpus de 16.000 millones de palabras) o embeddings multilingües para más de cien idiomas. Aunque las representaciones a nivel de frase se pueden obtener mediante la integración de las representaciones individuales de las palabras, hay sistemas más avanzados como <a class="reference external" href="https://github.com/facebookresearch/LASER">LASER</a> que ofrecen un codificador neuronal capaz de emitir embeddings de frases en 93 idiomas (23 alfabetos diferentes).</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="bloque2_historia.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Revisión histórica</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bloque2_recurrent.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Redes neuronales recurrentes</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Universitat d'Alacant<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

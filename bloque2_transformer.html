@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La arquitectura transformer &#8212; Minería de Textos</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/estilos.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modelos preentrenados" href="bloque2_pretrained.html" />
+    <link rel="prev" title="Redes neuronales recurrentes" href="bloque2_recurrent.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo-master-ca.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Minería de Textos</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Materiales de Minería de Textos
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="bloque1.html">
+   Introducción a la minería de textos
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_1Introduccion.html">
+     Minería de textos y procesamiento del lenguaje natural.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_2CategorialSintactico.html">
+     Análisis categorial y sintáctico
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_Practica1.html">
+     Fundamentos de PLN. Práctica 1.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_3AnalisisSemantico.html">
+     Análisis semántico
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_Practica2.html">
+     Fundamentos de PLN. Práctica 2. Análisis semántico.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque1_4AnalisisSemanticoVectorial.html">
+     Análisis semántico vectorial
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="bloque2.html">
+   Técnicas para la minería de textos
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_historia.html">
+     Revisión histórica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_embeddings.html">
+     Representaciones de palabras y oraciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_recurrent.html">
+     Redes neuronales recurrentes
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     La arquitectura transformer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_pretrained.html">
+     Modelos preentrenados
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_otros.html">
+     Otras técnicas para la minería de textos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_practica.html">
+     Práctica. Lectura y documentación del código de un extractor de entidades
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="bloque3.html">
+   Aplicaciones de la minería de textos
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t1_aplicaciones.html">
+     T1. Aplicaciones generales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t2_subaplicaciones-benchmarks.html">
+     T2. Aplicaciones específicas y Benchmacks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t2.1_analisis_sentimientos.html">
+     T2.1. Aplicaciones específicas. Análisis de Sentimientos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t3.1_metricas.html">
+     T3. Métricas de Evaluación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t4_huggingface.html">
+     T4. Centralización de datasets y modelos: Huggingface
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t5_automl.html">
+     T5. Auto Machine Learning(AutoML)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_t5.1_autogoal.html">
+     T5.1. AutoGOAL
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p1_SA-Pipeline-Reviews.html">
+     P1.1. Pipeline simple
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p2_SA-Transformers-Basic.html">
+     P1.2. APIs Transformers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p3_SA-Transformers-Training-FineTuning.html">
+     P2. Reajustar modelos Transformers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p4_SA-Transformers-Training-Custom.html">
+     P3. Composición de vectores de características
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p5-SA-Ensemble.html">
+     P4. Ensemble de pipelines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_p6_SA-AutoGOAL.html">
+     P5. Auto Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque3_ev.html">
+     Ev. Evaluación del bloque 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="content.html">
+   Content in Jupyter Book
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">Toggle navigation</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/bloque2_transformer.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arquitectura-codificador-descodificador-sobre-redes-recurrentes-y-mecanismo-de-atencion">
+   Arquitectura codificador-descodificador sobre redes recurrentes y mecanismo de atención
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecuaciones-del-modelo-seq2seq-recurrente">
+     Ecuaciones del modelo seq2seq recurrente
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   La arquitectura transformer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecuaciones-del-transformer">
+     Ecuaciones del transformer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-simil-del-mecanismo-de-autoatencion">
+     Un símil del mecanismo de autoatención
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#las-diferentes-caras-de-la-atencion">
+     Las diferentes caras de la atención
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalizacion-de-capa">
+     Normalización de capa
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizacion-de-embeddings-contextuales">
+   Visualización de embeddings contextuales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#para-saber-mas">
+   Para saber más
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>La arquitectura transformer</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arquitectura-codificador-descodificador-sobre-redes-recurrentes-y-mecanismo-de-atencion">
+   Arquitectura codificador-descodificador sobre redes recurrentes y mecanismo de atención
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecuaciones-del-modelo-seq2seq-recurrente">
+     Ecuaciones del modelo seq2seq recurrente
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   La arquitectura transformer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecuaciones-del-transformer">
+     Ecuaciones del transformer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-simil-del-mecanismo-de-autoatencion">
+     Un símil del mecanismo de autoatención
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#las-diferentes-caras-de-la-atencion">
+     Las diferentes caras de la atención
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalizacion-de-capa">
+     Normalización de capa
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizacion-de-embeddings-contextuales">
+   Visualización de embeddings contextuales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#para-saber-mas">
+   Para saber más
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="la-arquitectura-transformer">
+<h1>La arquitectura transformer<a class="headerlink" href="#la-arquitectura-transformer" title="Permalink to this headline">¶</a></h1>
+<p>En 2017 las redes neuronales recurrentes basadas en unidades LSTM como las que hemos estudiado eran la arquitectura habitual para el procesamiento neuronal de secuencias, en general, y del lenguaje natural, en particular. Algunos investigadores comenzaban a obtener también buenos resultados en esta área con las redes neuronales convolucionales, tradicionalmente empleadas con imágenes. Por otro lado, los mecanismos de atención introducidos unos años antes en las redes recurrentes habían mejorado su capacidad para resolver ciertas tareas y abierto el abánico de posibilidades de estos modelos. Además, el modelo conocido como codificador-descodificador (<em>encoder-decoder</em> en inglés) se convertía en la piedra angular de los sistemas que transformaban una secuencia en otra (sistemas conocidos como <em>seq2seq</em> como, por ejemplo, los sistemas de traducción automática o de obtención de resúmenes). A mediados de 2017, sin embargo, aparece un artículo <a class="bibtex reference internal" href="#allyouneed" id="id1">[VSP+17]</a> que propone eliminar la recurrencia del modelo codificador-descodificador y sustituirla por lo que se denomina autoatención (<em>self-attention</em>); aunque el artículo se centra en la tarea de la traducción automática, en muy poco tiempo la aplicación de esta arquitectura, bautizada como <em>transformer</em>, en muchos otros campos se descubre altamente eficaz hasta el punto de relegar a las arquitecturas recurrentes a un segundo plano. El transformer sería, además, uno de los elementos fundamentales de los modelos preentrenados que estudiaremos más adelante y que comenzarían a aparecer en los meses o años siguientes.</p>
+<p>En este apartado comenzaremos estudiando la arquitectura codificador-decodificador y el mecanismo de atención inicial propuesto para ellas, para pasar después a estudiar el transformer y su mecanismo de autoatención.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Aunque el énfasis en esta asignatura no está en la traducción automática, los desarrollos que vamos a comentar surgieron inicialmente en esta tarea, por lo que la discusión girará en torno a esta aplicación concreta. En posteriores apartados veremos cómo los modelos pueden adaptarse sin excesivas modificaciones a otras tareas más específicas de la minería de textos.</p>
+</div>
+<div class="section" id="arquitectura-codificador-descodificador-sobre-redes-recurrentes-y-mecanismo-de-atencion">
+<h2>Arquitectura codificador-descodificador sobre redes recurrentes y mecanismo de atención<a class="headerlink" href="#arquitectura-codificador-descodificador-sobre-redes-recurrentes-y-mecanismo-de-atencion" title="Permalink to this headline">¶</a></h2>
+<p>Para comenzar con el tema, vamos a seguir la guía ilustrada de Jay Alammar sobre los modelos <a class="reference external" href="https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/">seq2seq con atención</a>. Esta guía aborda inicialmente el estudio de la arquitectura codificador-descodificador sobre redes neuronales recurrentes y describe entonces en la última parte el mecanismo de atención.</p>
+<div class="section" id="ecuaciones-del-modelo-seq2seq-recurrente">
+<h3>Ecuaciones del modelo seq2seq recurrente<a class="headerlink" href="#ecuaciones-del-modelo-seq2seq-recurrente" title="Permalink to this headline">¶</a></h3>
+<p>Veamos en primer lugar las ecuaciones del modelo sin atención en el que un vector de contexto fijo para cada frase <em>resume</em> toda la información del codificador. El estado en el instante <span class="math notranslate nohighlight">\(t\)</span> del codificador es:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boldsymbol{h}_t = f(\boldsymbol{x}_t,\boldsymbol{h}_{t-1}) \\[1.5ex]
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(f\)</span> y el resto de funciones que se muestran a conmtinuación se instrumentan como redes neuronales. La fórmula anterior es como la usada en la red de Elman. El vector de contexto, si <span class="math notranslate nohighlight">\(m\)</span> es la longitud de la secuencia de entrada, es:</p>
+<div class="math notranslate nohighlight">
+\[
+\boldsymbol{c} = q(\{\boldsymbol{h}_1,\ldots,\boldsymbol{h}_m\})
+\]</div>
+<p>El descodificador se puede caracterizar como:</p>
+<div class="math notranslate nohighlight">
+\[
+\boldsymbol{s}_i = g(\boldsymbol{s}_{i-1},\boldsymbol{y}_{i-1},\boldsymbol{c})
+\]</div>
+<p>es decir, como una red recurrente condicionada por el vector de contexto que resume la frase de entrada y por la salida emitida por el descodificador en el instante anterior; esto último es lo que da su naturaleza autoregresiva al modelo. La salida del modelo es:</p>
+<div class="math notranslate nohighlight">
+\[
+\boldsymbol{y}_i = m(\boldsymbol{s}_i)
+\]</div>
+<p>La arquitectura anterior fue la propuesta por Ilya Sutskever, Oriol Vinyals y Quoc V. Le en 2014. Unos meses después, Dzmitry Bahdanau, Kyunghyun Cho y Yoshua Bengio incorporaron el mecanismo de atención que implica reescribir la ecuación de <span class="math notranslate nohighlight">\(\boldsymbol{s}_i\)</span> como sigue:</p>
+<div class="math notranslate nohighlight">
+\[
+\boldsymbol{s}_i = g(\boldsymbol{s}_{i-1},\boldsymbol{y}_{i-1},\boldsymbol{c}_i)
+\]</div>
+<p>El vector de contexto ya no es fijo, sino que cambia para cada token del descodificador:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+e_{ij} &amp;=&amp; a(\boldsymbol{s}_i,\boldsymbol{h}_j) \\[1.5ex]
+\alpha_{ij} &amp;=&amp; \frac{\mathrm{exp}(e_{ij})}{\sum_k \mathrm{exp}(e_{ik})} \\[1.5ex]
+\boldsymbol{c}_i &amp;=&amp; \sum_{j=1}^m \alpha_{ij} \boldsymbol{h}_j
+\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>La arquitectura transformer<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Introducida la arquitectura <em>seq2seq</em>, usaremos en este bloque otra guía ilustrada de Jay Alammar para presentar este vez el <a class="reference external" href="http://jalammar.github.io/illustrated-transformer/">transformer</a>.</p>
+<p>Las representaciones aprendidas tras el entrenamiento por un transformer en cada una de sus capas para una nueva frase de entrada pueden considerarse (de la misma manera que con una red recurrente) como embeddings contextuales de los diferentes tokens de la entrada que pueden usarse a la hora de representarlos en otras tareas. En principio, cualquier capa puede ser adecuada para obtener estas representaciones, pero algunos trabajos han demostrado que ciertas capas son más adecuadas que otras para ciertas tareas. Las capas más cercanas a la entrada parecen representar información más relacionada con la morfología, mientras que las capas finales se relacionan más con la semántica.</p>
+<div class="section" id="ecuaciones-del-transformer">
+<h3>Ecuaciones del transformer<a class="headerlink" href="#ecuaciones-del-transformer" title="Permalink to this headline">¶</a></h3>
+<p>El transformer usa la arquitectura codificador-descodificador para emitir de forma autoregresiva una secuencia de salida <span class="math notranslate nohighlight">\(\boldsymbol{y}= y_1, y_2,\ldots,y_n\)</span> a partir de una secuencia de entrada <span class="math notranslate nohighlight">\(\boldsymbol{x}= x_1, x_2,\ldots,x_n\)</span>. Habitualmente cada <span class="math notranslate nohighlight">\(x_i\)</span> será un embedding <em>no contextual</em> para el token correspondiente de la frase a procesar obtenido de una tabla de embeddings, y cada <span class="math notranslate nohighlight">\(y_i\)</span> será el vector de probabilidades correspondiente al <span class="math notranslate nohighlight">\(i\)</span>-ésimo token de la frase de salida.</p>
+<p>El codificador tiene <span class="math notranslate nohighlight">\(N\)</span> capas idénticas, cada una formada a su vez por dos subcapas:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\underline{\boldsymbol{h}}^l &amp;=&amp; \text{LN}\left(\text{SelfAtt}\left(\boldsymbol{h}^{l-1}\right) + \boldsymbol{h}^{l-1}\right) \\[2ex]
+\boldsymbol{h}^l &amp;=&amp; \text{LN}\left(\text{FF}\left(\underline{\boldsymbol{h}}^l\right) + \underline{\boldsymbol{h}}^l\right)
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\boldsymbol{h}^l = \{h_1^l,h_2^l,\ldots,h_n^l\}\)</span> son las salidas de la capa <span class="math notranslate nohighlight">\(l\)</span>-ésima (una por cada token de la entrada). La salida de la primera capa es <span class="math notranslate nohighlight">\(\boldsymbol{h}^0= \boldsymbol{x}\)</span>. La función LN obtiene la normalización a nivel de capa, SelfAtt es el mecanismo de atención con múltiples cabezales y FF es una red hacia delante completamente conectada.</p>
+<p>El descodificador sigue un planteamiento similar con un par de particularidades: el mecanismo de autoatención usa una máscara para no usar los embeddings de los tokens aún no generados y aparece una tercera subcapa responsable de la atención hacia el codificador:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\underline{\boldsymbol{s}}^l &amp;=&amp; \text{LN}\left(\text{MaskedSelfAtt}\left(\boldsymbol{s}^{l-1}\right) + \boldsymbol{s}^{l-1}\right) \\[2ex]
+\underline{\underline{\boldsymbol{s}}}^l &amp;=&amp; \text{LN}\left(\text{CrossAtt}\left(\underline{\boldsymbol{s}}^{l},\boldsymbol{h}^N\right) + \underline{\boldsymbol{s}}^{l}\right) \\[2ex]
+\boldsymbol{s}^l &amp;=&amp; \text{LN}\left(\text{FF}\left(\underline{\underline{\boldsymbol{s}}}^l\right) + \underline{\underline{\boldsymbol{s}}}^l\right)
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\boldsymbol{s}^l\)</span> son las salidas de la capa <span class="math notranslate nohighlight">\(l\)</span>-ésima del descodificador. Los embeddings de la última capa <span class="math notranslate nohighlight">\(\boldsymbol{s}^M\)</span> se pasan por una capa densa adicional seguida de una función softmax para obtener la estimación de la probabilidad del token correspondiente. La salida de la primera capa del descodificador <span class="math notranslate nohighlight">\(\boldsymbol{s}^0\)</span> es, como en el codificador, un embedding no contextual del token anterior (por ejemplo, el token de mayor probabilidad emitido en el paso anterior).</p>
+<div class="figure align-default" id="fig-selfatt">
+<a class="reference internal image-reference" href="_images/self-attention_multihead-romain-futrzynski.svg"><img alt="_images/self-attention_multihead-romain-futrzynski.svg" height="700px" src="_images/self-attention_multihead-romain-futrzynski.svg" /></a>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Una representación tridimensional del mecanismo de autoatención tomada del <a class="reference external" href="https://peltarion.com/blog/data-science/self-attention-video">tutorial</a> de Romain Futrzynski.</span><a class="headerlink" href="#fig-selfatt" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="un-simil-del-mecanismo-de-autoatencion">
+<h3>Un símil del mecanismo de autoatención<a class="headerlink" href="#un-simil-del-mecanismo-de-autoatencion" title="Permalink to this headline">¶</a></h3>
+<p>El mecanismo de autoatención se puede introducir con propósitos didácticos basándonos en una hipotética versión de Python en la que se permitiera acceder a los valores de un diccionario usando claves <em>aproximadas</em>. Supongamos el siguiente diccionario de Python almacenado en la variable <code class="docutils literal notranslate"><span class="pre">d</span></code>; como cualquier diccionario de Python este contiene también un conjunto de claves (<code class="docutils literal notranslate"><span class="pre">manzana</span></code>, por ejemplo) y sus valores asociados (<code class="docutils literal notranslate"><span class="pre">8</span></code> es el valor asociado a la clave <code class="docutils literal notranslate"><span class="pre">manzana</span></code>, por ejemplo):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;manzana&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;albaricoque&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;naranja&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>En Python <em>convencional</em> ahora podemos realizar una <em>consulta</em> al diccionario con una sintaxis como <code class="docutils literal notranslate"><span class="pre">d[&quot;manzana&quot;]</span></code> para obtener el valor <code class="docutils literal notranslate"><span class="pre">8</span></code>. El intérprete de Python ha usado el nombre de nuestra consulta (<code class="docutils literal notranslate"><span class="pre">manzana</span></code>) para buscar entre todas las claves del diccionario una cuyo nombre coincida <em>exactamente</em> y devolver su valor (<code class="docutils literal notranslate"><span class="pre">8</span></code> en este caso).</p>
+<p>Observa cómo en la discusión anterior hemos usado los términos “consulta” (<em>query</em>), “clave” (<em>key</em>) y “valor” (<em>value</em>) que aparecen tambien cuando se discute el mencanismo de autoatención del transformer.</p>
+<p>Vayamos ahora más allá y consideremos que realizamos una consulta como <code class="docutils literal notranslate"><span class="pre">d[&quot;narancoque&quot;]</span></code>. Un intérprete de Python <em>real</em> lanzará una excepción ante la consulta anterior, pero un intérprete <em>imaginario</em> podría recorrer el diccionario, comparar el término de la consulta con cada clave del diccionario y ponderar los valores en función del parecido encontrado. Consideremos una función <code class="docutils literal notranslate"><span class="pre">similitud</span></code> que recibe dos cadenas y devuelve un número, no necesariamente acotado, que es mayor cuanto más parecidas son las cadenas (los valores concretos no son ahora relevantes):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>similitud(&quot;narancoque&quot;,&quot;manzana&quot;) → 0
+similitud(&quot;narancoque&quot;,&quot;albaricoque&quot;) → 20
+similitud(&quot;narancoque&quot;,&quot;naranja&quot;) → 30
+</pre></div>
+</div>
+<p>Estos resultados normalizados para que su suma sea 1 son <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">0,4</span></code> y <code class="docutils literal notranslate"><span class="pre">0,6</span></code>. Nuestro intérprete de Python imaginario podría ahora devolvernos para la consulta <code class="docutils literal notranslate"><span class="pre">d[&quot;narancoque&quot;]</span></code> el valor 0 x 8 + 0,4 x 4 + 0,6 x 3 = 3,4.</p>
+<p>En el caso del transformer, las consultas, las claves y los valores son vectores de una cierta dimensión, y la función de similitud empleada es el producto escalar de la consulta y las diferentes claves. Los grados de similitud se normalizan mediante la función softmax y se utlizan igualmente para ponderar después los distintos valores:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{SelfAtt}(Q,K,V) = \text{softmax}\left( \frac{Q K^T}{\sqrt{d_k}} \right) V
+\]</div>
+</div>
+<div class="section" id="las-diferentes-caras-de-la-atencion">
+<h3>Las diferentes caras de la atención<a class="headerlink" href="#las-diferentes-caras-de-la-atencion" title="Permalink to this headline">¶</a></h3>
+<p>En el siguiente análisis nos basaremos en la <a class="reference external" href="https://stats.stackexchange.com/a/424127/240809">discusión</a> de <em>dontloo</em> en Cross Validated.</p>
+<p>En el sistema <em>seq2seq</em>, la atención calcula una media ponderada de las claves:</p>
+<div class="math notranslate nohighlight">
+\[
+\boldsymbol{c} = \sum_{j} \alpha_j \boldsymbol{h}_j   \qquad \mathrm{con} \,\, \sum_j \alpha_j = 1
+\]</div>
+<p>Si <span class="math notranslate nohighlight">\(\alpha\)</span> fuera un vector one-hot, la atención se reduciría a recuperar aquel elemento de entre los distintos <span class="math notranslate nohighlight">\(\boldsymbol{h}_j\)</span> en base al correspondiente índice; pero sabemos que <span class="math notranslate nohighlight">\(\alpha\)</span> difícilmente será un vector unitario, por lo que se tratará más bien de una recuperación ponderada. En este caso, <span class="math notranslate nohighlight">\(\boldsymbol{c}\,\)</span> puede considerarse como el valor resultante.</p>
+<p>Hay una diferencia importante en cómo este vector de pesos con suma 1 se obtiene en las arquitecturas de <em>seq2seq</em> y la del <em>transformer</em>. En el primer caso, se usa una red neuronal <em>feedforward</em>, representada mediante la función <span class="math notranslate nohighlight">\(a\)</span>, que determina la <em>compatibilidad</em> entre la representación del token <span class="math notranslate nohighlight">\(i\)</span>-ésimo del descodificador <span class="math notranslate nohighlight">\(\boldsymbol{s}_i\)</span> y la representación del token <span class="math notranslate nohighlight">\(j\)</span>-ésimo del codificador <span class="math notranslate nohighlight">\(\boldsymbol{h}_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+e_{ij} = a(\boldsymbol{s}_i,\boldsymbol{h}_j)
+\]</div>
+<p>y de aquí:</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha_{ij} = \frac{\mathrm{exp}(e_{ij})}{\sum_k \mathrm{exp}(e_{ik})}
+\]</div>
+<p>Supongamos que la longitud de la secuencia de entrada es <span class="math notranslate nohighlight">\(m\)</span> y la de la salida generada hasta este momento es <span class="math notranslate nohighlight">\(n\)</span>. Un problema de este enfoque es que en cada paso del descodificador es necesario pasar por la red neuronal <span class="math notranslate nohighlight">\(a\)</span> un total de <span class="math notranslate nohighlight">\(mn\)</span> veces para computar todos los <span class="math notranslate nohighlight">\(e_{ij}\)</span>.</p>
+<p>Existe una estrategia más eficiente que pasa por proyectar los <span class="math notranslate nohighlight">\(\boldsymbol{s}_i\)</span> y los <span class="math notranslate nohighlight">\(\boldsymbol{h}_j\)</span> a un espacio común (mediante, por ejemplo, sendas transformaciones lineales de una capa, <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(g\)</span>) y usar entonces una medida de similitud (como el producto escalar) para obtener la puntuación <span class="math notranslate nohighlight">\(e_{ij}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+e_{ij} = f(\boldsymbol{s}_i) \cdot g(\boldsymbol{h}_j)^T
+\]</div>
+<p>Podemos considerar que el vector de proyección <span class="math notranslate nohighlight">\(f(\boldsymbol{s}_i)\)</span> es la consulta realizada por el descodificador y el vector de proyección <span class="math notranslate nohighlight">\(g(\boldsymbol{h}_j)\)</span> es la clave proveniente del descodificador. Ahora solo es necesario realizar <span class="math notranslate nohighlight">\(n\)</span> llamadas a <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(m\)</span> llamadas a <span class="math notranslate nohighlight">\(g\)</span>, con lo que hemos reducido la complejidad a <span class="math notranslate nohighlight">\(m+n\)</span>. Además, hemos conseguido que los <span class="math notranslate nohighlight">\(e_{ij}\)</span> puedan calcularse eficientemente mediante producto de matrices.</p>
+<p>El mecanismo de atención del transformer establece las condiciones para que las proyecciones de consultas y claves y el cálculo de la similitud se puedan llevar a cabo. Cuando la atención se realiza desde y hacia vectores con el mismo origen (por ejemplo, dentro del codificador) se denomina <em>autoatención</em>. El transformer combina autoatención separada en codificador y descodificador con el otro mecanismo de atención <em>heterogénea</em> en el que <span class="math notranslate nohighlight">\(Q\)</span> viene del descodificador y <span class="math notranslate nohighlight">\(K\)</span> y <span class="math notranslate nohighlight">\(V\)</span> vienen del codificador.</p>
+<p>Como ya se ha visto, la ecuación básica de la autoatención en el transformer es esta:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{SelfAttn}(Q,K,V) = \mathrm{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right) V
+\]</div>
+<p>En realidad, las ecuaciones finales del transformer son ligeramente más complejas que esta al tener que considerar los múltiples cabezales.</p>
+</div>
+<div class="section" id="normalizacion-de-capa">
+<h3>Normalización de capa<a class="headerlink" href="#normalizacion-de-capa" title="Permalink to this headline">¶</a></h3>
+<p>Sean <span class="math notranslate nohighlight">\(\hat{\mu}\)</span> y <span class="math notranslate nohighlight">\(\hat{\sigma}^2\)</span> la media y la varianza, respectivamente, de todas las entradas, que representaremos por <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>, a las neuronas de una capa formada por H neuronas:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mu} &amp;=&amp; \frac{1}{H} \sum_{i=1}^H x_i \\[1.5ex]
+\hat{\sigma}^2 &amp;=&amp; \frac{1}{H} \sum_{i=1}^H \left(x_i - \hat{\mu} \right)^2 + \epsilon
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\epsilon\)</span> tiene un valor muy pequeño para evitar que la una división por cero en la siguiente ecuación. La función LN de normalización para cada entrada de la capa se define como la estandarización:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{LN}(x_i) = \gamma_i \frac{x_i - \hat{\mu}}{\hat{\sigma}^2} + \beta
+\]</div>
+<p>La fracción permite que todos las entradas de la capa en un determinado instante tengan media cero y varianza 1. Como estos valores son arbitrarios, en cualquier caso, se añaden dos parámetros aprendibles <span class="math notranslate nohighlight">\(\boldsymbol{\gamma}\)</span> y <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> para reescalarlos. Los valores normalizados se convierten en la nueva entrada de cada neurona y a estos se aplica la función de activación que corresponda; en el caso del transformer, no hay ninguna función de activación adicional.</p>
+</div>
+</div>
+<div class="section" id="visualizacion-de-embeddings-contextuales">
+<h2>Visualización de embeddings contextuales<a class="headerlink" href="#visualizacion-de-embeddings-contextuales" title="Permalink to this headline">¶</a></h2>
+<p>Mediante la herramienta <a class="reference external" href="https://huggingface.co/exbert/?model=bart-large&amp;modelKind=bidirectional&amp;sentence=The%20moon%20is%20shinning%20brightly%20tonight.">exBERT</a> vamos a explorar visualmente las representaciones intermedias obtenidas en el codificador de un transformer.</p>
+<p>En la <a class="reference external" href="https://www.youtube.com/watch?v=e31oyfo_thY">herramienta</a> puedes seleccionar el modelo a utilizar (en estos momentos no hemos estudiado las diferencias entre ellas, por lo que con <em>BART</em> es suficiente), la frase de entrada, el grado de la atención, las capas y los cabezales a mostrar. La capa superior (la más alejada de la entrada) está a la izquierda. Para seleccionar o deseleccionar un cabezal puedes hacer clic en las columnas. Puedes seleccionar un token haciendo clic sobre él y ocultarlo con doble clic. Al colocarte sobre una palabra puedes ver la predicción que haría el modelo del token que corresponde al embedding obtenido por la red en esa posición, capa y cabezal; observa que si ocultas <em>moon</em> a la derecha, por ejemplo, a la izquierda el sistema tiende a predecir <em>sun</em> en esa posición.</p>
+</div>
+<div class="section" id="para-saber-mas">
+<h2>Para saber más<a class="headerlink" href="#para-saber-mas" title="Permalink to this headline">¶</a></h2>
+<p>“<a class="reference external" href="https://nlp.seas.harvard.edu/2018/04/03/attention.html">The annotated transformer</a>” es un documento que va mostrando paso a paso el artículo científico original del transformer y su <em>traslación</em> a código en Python. Este material es opcional y de una complejidad superior a la requerida en la asignatura, pero es la mejor manera de entender la arquitectura a bajo nivel.</p>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-bloque2_transformer-0"><dl class="citation">
+<dt class="bibtex label" id="allyouneed"><span class="brackets"><a class="fn-backref" href="#id1">VSP+17</a></span></dt>
+<dd><p>Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. In I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, editors, <em>Advances in Neural Information Processing Systems</em>, volume 30, 5998–6008. Curran Associates, Inc., 2017. URL: <a class="reference external" href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="bloque2_recurrent.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Redes neuronales recurrentes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bloque2_pretrained.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modelos preentrenados</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Universitat d'Alacant<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
