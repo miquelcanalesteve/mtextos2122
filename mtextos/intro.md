@@ -49,7 +49,7 @@ El [código fuente][fuente] de estas páginas, escrito en MyST para Jupyter Book
 Puedes obtener una copia local de estas páginas (por ejemplo, para poder consultarlas sin conexión) ejecutando::
 
 ```
-  wget --mirror --no-parent --convert-links --page-requisites https://jaspock.github.io/mtextos/
+  wget --mirror --no-parent --convert-links --page-requisites https://jaspock.github.io/mtextos2122/
 ```
 Pero ten en cuenta que su contenido irá cambiando a lo largo del curso.
 
