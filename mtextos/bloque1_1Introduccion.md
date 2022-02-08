@@ -91,7 +91,7 @@ Percepción y representación mental (prototípica y abstracta) de los sonidos (
 
 Los sistemas de PLN de este nivel son los sistemas de reconocimiento del habla o análisis de voz. El primero transforman una cadena de sonido hablado en una representación textual procesable (texto digital codificado en UTF-8, etc.). Problemas: relacionar sonidos y fonemas, sílabas, entonación, discriminación del habla de otros tipos de sonidos (ruido), separación de palabras (o unidades significativas), etc.
 
-Ej. "..."
+Ej. "leasinvergüenza"
 
 El proceso contrario, del texto a habla, son los sistemas de síntesis de voz.
 
@@ -227,7 +227,7 @@ En esta sesión se han presentado los análisis básicos de PLN, necesarios para
 http://nlpprogress.com/
 
 
-## Bibliografía 
+## Bibliografía
 
 Bird, Steven; Klein, Ewan y Loper, Edward (2009) *Natural Language Processing with Python. Analyzing Text with the Natural Language Toolkit* O'Reilly Media. https://www.nltk.org/book_1ed/
 
