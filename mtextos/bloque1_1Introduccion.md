@@ -3,6 +3,8 @@
 Minería de textos y procesamiento del lenguaje natural.
 ===================================
 
+[Transparencias de clase](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)
+
 *Minería de textos* es el conjunto de técnicas y herramientas desarrolladas para extraer información de grandes colecciones textuales, tanto información implícita como explícita.
 
 Extracción de información de grandes volúmenes de textos. Sin estas técnicas no sería posible analizar toda esa información por un humano. Extracción de patrones / información recurrente.
