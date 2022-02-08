@@ -172,9 +172,9 @@ Algunos fenómenos que requieren tener en cuenta la situación pragmática:
 - Referencias de lugar ("aquí"), temporales ("hoy") o personales ("tú"), así como referencias concretas ("este libro").
 - Actos de habla: el propio acto de hablar (locutivo), la intención por la que se habla (afirmas, agradecer, insultar, opinar, etc.), llamado acto "ilocutivo", y las consecuencias del acto en el receptor (perlocutivo).
 
-Ej:
-    USUARIO: "¿Puedo darte un beso?"
-    SIRI: "¿Qué tal si busco “comportamiento inapropiado” en Internet?"
+    Ej:
+        USUARIO: "¿Puedo darte un beso?"
+        SIRI: "¿Qué tal si busco “comportamiento inapropiado” en Internet?"
 
 - Intención del hablante: humor, ironía... Y engaños, mentiras, persuasión, etc.
 - Agentes conversacionales y gestión del diálogo.
