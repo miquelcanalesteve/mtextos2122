@@ -68,10 +68,6 @@ Actualmente hay diversas propuestas. Es necesario saber con qué juego de etique
 
 Algunas propuestas:
 
-- BROWN corpus:
-
-[http://www.helsinki.fi/varieng/CoRD/corpora/BROWN/tags.html](http://www.helsinki.fi/varieng/CoRD/corpora/BROWN/tags.html)
-
 - Penn Treebank tag set:
 
 [https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html](https://www.cs.upc.edu/~nlp/SVMTool/PennTreebank.html)
