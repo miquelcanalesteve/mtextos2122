@@ -52,11 +52,12 @@ Categorías abiertas vs cerradas.
 
 Base para análisis sintáctico y semántico.
 
-Algunas aplicaciones de MdTx son dependientes de la categoría gramatical. Ej.: 
+Un pre-proceso muy común en Minería de Textos es eliminar las "stop-words", es decir, las palabras de categorías gramaticales sin significado semántico (artículos, preposiciones, conjunciones, etc.). En ocasiones además las palabras se lematizan. En ambos casos es necesario un análisis categorial (aunque sea un simple filtro de "stop-words"). Algunas aplicaciones dependen de las categorías gramaticales, como: 
 
-- extracción de entidades --> nombres propios
-- extracción de eventos --> verbos y nombres
-- extracción de sentimientos --> adjetivos
+- extracción de entidades --> nombres propios;
+- extracción de eventos --> verbos y nombres;
+- extracción de sentimientos --> adjetivos;
+- detección de autoría --> categorías cerradas;
 - etc.
 
 ### Representación de la información morfológica y categorial
