@@ -23,7 +23,7 @@ Para ello, se utilizará el *pipeline* básico de la herramienta de PLN [SpaCy](
 
 Para darle algo de interés a la práctica, vamos a utilizar el tipo de texto más complejo que exite: el texto literario. En concreto debéis analizar una novela del corpus [ELTeC](https://github.com/COST-ELTeC).
 
-ELTeC es un corpus multilingüe de novelas publicada en Europa durante los siglos XIX y XX. Cada novela está anotada en tres niveles: básico, estándar y avanzado. __Debéis seleccionar una novela del nivel estándar__ A este nivel, cada novela está marcada en XML siguiendo el estándar [TEI](https://tei-c.org/). Podéis utilizar el idioma que queráis (siempre que se encuentre en SpaCy, ver [modelos disponibles](https://spacy.io/models)). Por ejemplo:
+ELTeC es un corpus multilingüe de novelas publicada en Europa durante los siglos XIX y XX. Cada novela está anotada a tres niveles: básico, estándar y avanzado. __Debéis seleccionar una novela del nivel estándar.__ A este nivel, cada novela está marcada en XML siguiendo el estándar [TEI](https://tei-c.org/). Podéis utilizar el idioma que queráis (siempre que se encuentre en SpaCy, ver [modelos disponibles](https://spacy.io/models)). Por ejemplo:
 
 - novelas en español: [https://github.com/COST-ELTeC/ELTeC-spa/tree/master/level1](https://github.com/COST-ELTeC/ELTeC-spa/tree/master/level1)
 - novelas en inglés: [https://github.com/COST-ELTeC/ELTeC-eng/tree/master/level1](https://github.com/COST-ELTeC/ELTeC-eng/tree/master/level1)
@@ -37,9 +37,7 @@ Dado que el corpus está en GitHub, se puede descargar y procesar directamente d
 ## Documentación
 
 - Documentación básica SpaCy. Aquí está explicado todo lo necesario sobre PLN para realizar esta páctica:
-
-[https://spacy.io/usage/spacy-101](https://spacy.io/usage/spacy-101)
-
+    [https://spacy.io/usage/spacy-101](https://spacy.io/usage/spacy-101)
 - Más información sobre SpaCy:
     - Curso avanzado: [https://course.spacy.io/es/](https://course.spacy.io/es/)
     - Documentación oficial: [https://spacy.io/usage](https://spacy.io/usage)
@@ -52,7 +50,7 @@ Dado que el corpus está en GitHub, se puede descargar y procesar directamente d
 4. Asignar a una variable y crear así el *pipeline* de análisis.
 5. Descargar el corpus desde GitHub y abrir una única novela en la carpeta level1.
 5. Procesar el XML y extraer los párrafos:
-    - etiqueta <P>
+    - etiqueta "p"
     - para procesar XML en python, se recomienda por su sencillez [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/#)
 6. Analizar el texto con el *pipeline* básico de SpaCy y extraer "palabra | lema | categoria_gramatical".
 7. Extraer los grupos nominales según el análisis de dependencias y ordenar por frecuencias de aparición.
