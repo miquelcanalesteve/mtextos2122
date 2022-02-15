@@ -2,6 +2,8 @@
 Análisis categorial y sintáctico
 =================================
 
+> Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
+
 ## Unidades de comunicación básica. La palabra. *Type*, *token* y lema.
 
 Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en Lingüística.
@@ -39,13 +41,15 @@ La tokenización más simple es separar las palabras por espacioes en blanco. Pe
 
 *Type* y *token* se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, "catamos" y "cantaré" son *tokens* distintos; al igual que "casa" y "casas".
 
+### Lematización y *stemming*
+
 Para agrupar todos los *tokens* relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de _lematización_. La lematización es asignar a cada palabra su forma no marcada: infinitivo para verbos, forma masculino singular para nombres y verbos (es decir, la forma que aparece en el diccionario). El lema es una manera de nombrar la palabra en toda su diversidad flexiva.
 
 La lematización es un fenómenos complejo porque es necesario analizar morfológicamente la palabra para determinar su lema. Ej. El lema del *token* "traje" puede ser "traer" (si es verbo) o "traje" (si es nombre).
 
 Un proceso similar pero más sencillo es el *stemming*: reducir cada *token* a su raíz o lexema (la parte invarible que, en principio, asume el significado general de la palabra).
 
-> Reflexión: para minería de textos, ¿qué es mejor, dejar el corpus con los *tokens*, lematizarlo o trabajar solo con las raíces léxicas (*stemm*)? 
+> *Reflexión:* para minería de textos, ¿qué es mejor, dejar el corpus con los *tokens*, lematizarlo o trabajar solo con las raíces léxicas (*stemm*)? 
 
 ## Análisis morfológico y categorial.
 
@@ -55,14 +59,14 @@ El objetivo general de la anotación categorial (*PoS Tagger*): asignar a cada p
 - categoría gramatical,
 - rasgos morfológicos.
 
-El mayor problema viene en la selección de la categoría gramatical por los problemas de ambigüedad categorial que vimos en la sesión anterior.
+El mayor problema viene en la selección de la categoría gramatical por los problemas de *ambigüedad categorial* que vimos en la sesión anterior.
 
 
 ### Fundamentos lingüísticos (a modo de recordatorio).
 
 Categorías gramaticales: agrupaciones de palabras ("paradigmas") según sus rasgos distributivos, morfológicos y (en menor medida) semánticos.
 
-ESP: artículo, sustantivo, adjetivo, pronombre, verbo, adverbio, preposición, conjunción e interjección.
+ESP: determinantes (artículo, demostrativos, etc.), sustantivos, adjetivos, pronombres, verbos, adverbios, preposiciones, conjunciones e interjecciones.
 
 Por su función en el texto: categorías con significado léxico vs. "significado" gramatical (solo aportan información gramatical).
 
@@ -84,7 +88,7 @@ Un pre-proceso muy común en Minería de Textos es eliminar las "stop-words", es
 
 ### Representación de la información morfológica y categorial
 
-La información categorial y morfológica se representa explícitamente mediante juegos de etiquetas.
+La información categorial y morfológica se representa explícitamente mediante etiquetas.
 
 Actualmente hay diversas propuestas. Es necesario saber con qué juego de etiquetas representa la información el sistema de PoS que estemos utilizando par poder interpretar la información correctamente.
 
@@ -162,7 +166,8 @@ Las reglas son condicionales al contexto (si la palabra anterior es X, la siguie
 Ejemplo:
      "Un verbo no va precedido de artículo". 
 
-Sistema ENGCG (1990)
+Sistema ENGCG de 1990 (Karlsson et al 1995)
+
 
 #### Modelos basados en aprendizaje automático.
 
@@ -270,12 +275,11 @@ Modelos de aprendizaje automático.
 Corpus de aprendizaje y evaluación: *treebanks*
 
 - Penn Treebank:
-
-[https://catalog.ldc.upenn.edu/LDC99T42](https://catalog.ldc.upenn.edu/LDC99T42)
-[https://www.kaggle.com/nltkdata/penn-tree-bank](https://www.kaggle.com/nltkdata/penn-tree-bank)
+    + [https://catalog.ldc.upenn.edu/LDC99T42](https://catalog.ldc.upenn.edu/LDC99T42)
+    + [https://www.kaggle.com/nltkdata/penn-tree-bank](https://www.kaggle.com/nltkdata/penn-tree-bank)
 
 - Ancora (español, catalán):
-[http://clic.ub.edu/corpus/en/ancora-descarregues](http://clic.ub.edu/corpus/en/ancora-descarregues)
+    + [http://clic.ub.edu/corpus/en/ancora-descarregues](http://clic.ub.edu/corpus/en/ancora-descarregues)
 
 Y muchos otros
 
@@ -283,12 +287,14 @@ Y muchos otros
 
 En ocasiones el análisis sintáctico completo (*full parsing*) es complejo, consume mucho recurso y no suele obtener buenos resultados.
 
-Lo normal es realizar _análisis sintáctico parcial_ o *chunkers*: extraer agrupaciones sintáticas (*chunks*) sin llegar a derivar el árbol sintáctico completo.
+Lo normal es realizar _análisis sintáctico parcial_ o *chunkers*: extraer agrupaciones sintáticas (*chunks*) sin llegar a derivar el árbol sintáctico completo (Abney 1991).
 
 ### Estrategias
 
 Descendente:
 Recursive Descendent:
+
+(El siguiente código es Python y requiere tener instalado [NLTK](https://www.nltk.org/))
 
     import nltk
     nltk.app.rdparser()
@@ -305,7 +311,7 @@ Shift Reduce:
 
 *Neural Network Dependency Parser*: [https://nlp.stanford.edu/software/nndep.shtml](https://nlp.stanford.edu/software/nndep.shtml)
 
-Modelo de dependencias universal: *Universal Dependencies*:
+Modelo de dependencias universal: [*Universal Dependencies*](https://universaldependencies.org/):
 
 > The Universal Dependencies project (Nivre et al., 2016) provides an inventory of dependency relations that arelinguistically motivated, computationally useful, and cross-linguistically applicable. (Juravsky y Martin 2020, cap. 14)
 
@@ -317,9 +323,12 @@ Representación vectorial (*embeddings*).
 
 ## Bibliografía
 
-Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/) 
-(Caps 12-14)
+- Abney S.P. (1991) "Parsing By Chunks". In: Berwick R.C., Abney S.P., Tenny C. (eds) Principle-Based Parsing. Studies in Linguistics and Philosophy, vol 44. Springer, Dordrecht. https://doi.org/10.1007/978-94-011-3474-3_10
+- Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/)
+- Karlsson, F., A. Voutilainen, J. Heikkilä, and A. Anttila (eds.). 1995. _Constraint Grammar. A language-independent system for parsing unrestricted text_. Berlin and New-York: Mouton de Gruyter
 
-[¹] "Token" se asimila en este caso a "occurrence". Cfr. https://plato.stanford.edu/entries/types-tokens/#Occ
+---
 
-[²] Este verso es una adaptación del verso de Gertrude Stein "A rose is a rose is a rose". Ver [https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa](https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa).
+[¹]: "Token" se asimila en este caso a "occurrence". Cfr. [https://plato.stanford.edu/entries/types-tokens/#Occ](https://plato.stanford.edu/entries/types-tokens/#Occ)
+
+[²]: Este verso es una adaptación del verso de Gertrude Stein "A rose is a rose is a rose". Ver [https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa](https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa).
