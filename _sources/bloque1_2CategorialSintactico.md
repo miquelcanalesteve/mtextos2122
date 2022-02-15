@@ -2,7 +2,9 @@
 Análisis categorial y sintáctico
 =================================
 
-> Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
+:::{Nota}
+Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
+:::
 
 ## Unidades de comunicación básica. La palabra. *Type*, *token* y lema.
 
@@ -11,11 +13,11 @@ Si bien se suele utilizar como unidad mínima y básica de comunicación, la pal
 En lingüística de corpus se trabaja con dos conceptos relacionados: *type* y *token*.
 
   - *Type* es la palabra entendida como clase. Una secuencia de caracteres que se diferencia de cualquier otra secuencia.  
-  - *Token* es cada una de las instancias concretas de esas clase que se pueden hallar en un texto[¹].
+  - *Token* es cada una de las instancias concretas de esas clase que se pueden hallar en un texto [^1].
 
 Por ejemplo, en este verso de [una canción](https://www.youtube.com/watch?v=dv958EeZXHc) del grupo de los 80 _Mecano_
 
-> "Una rosa es una rosa es"[²]
+> "Una rosa es una rosa es" [^2]
 
 encontramos tres *types*:
 
@@ -33,7 +35,7 @@ El cálculo de frecuencas más simple que se puede hacer es contar la cantidad d
 
 El tamaño del corpus se suele indicar en número de *tokens*.
 
-La tokenización más simple es separar las palabras por espacioes en blanco. Pero hay algunos problemas que deben ser tenidos en cuenta como:
+La tokenización más simple es separar las palabras por espacios en blanco. Pero hay algunos problemas que deben ser tenidos en cuenta como:
 
 - signos de puntuación,
 - unidades multipalabra (como formas complejas del verbo Ej. "he comido") o
@@ -169,7 +171,7 @@ Ejemplo:
 Sistema ENGCG de 1990 (Karlsson et al 1995)
 
 
-#### Modelos basados en aprendizaje automático.
+### Modelos basados en aprendizaje automático.
 
 Sistemas supervisados. Aprendizaje a partir de un corpsu anotado a mano y validado por lingüistas.
 
@@ -329,6 +331,6 @@ Representación vectorial (*embeddings*).
 
 ---
 
-[¹]: "Token" se asimila en este caso a "occurrence". Cfr. [https://plato.stanford.edu/entries/types-tokens/#Occ](https://plato.stanford.edu/entries/types-tokens/#Occ)
+[^1]: "Token" se asimila en este caso a "occurrence". Cfr. [https://plato.stanford.edu/entries/types-tokens/#Occ](https://plato.stanford.edu/entries/types-tokens/#Occ)
 
-[²]: Este verso es una adaptación del verso de Gertrude Stein "A rose is a rose is a rose". Ver [https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa](https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa).
+[^2]: Este verso es una adaptación del verso de Gertrude Stein "A rose is a rose is a rose". Ver [https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa](https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa).

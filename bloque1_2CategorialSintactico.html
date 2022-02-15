@@ -342,13 +342,11 @@
      </em>
      )
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#modelos-basados-en-aprendizaje-automatico">
-       Modelos basados en aprendizaje automático.
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelos-basados-en-aprendizaje-automatico">
+     Modelos basados en aprendizaje automático.
+    </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#situacion-actual">
@@ -418,7 +416,7 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#id3">
      Situación actual
     </a>
    </li>
@@ -531,13 +529,11 @@
      </em>
      )
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#modelos-basados-en-aprendizaje-automatico">
-       Modelos basados en aprendizaje automático.
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelos-basados-en-aprendizaje-automatico">
+     Modelos basados en aprendizaje automático.
+    </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#situacion-actual">
@@ -607,7 +603,7 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#id3">
      Situación actual
     </a>
    </li>
@@ -629,20 +625,20 @@
                 
   <div class="section" id="analisis-categorial-y-sintactico">
 <span id="label-pos"></span><h1>Análisis categorial y sintáctico<a class="headerlink" href="#analisis-categorial-y-sintactico" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>.</p>
-</div></blockquote>
+<p>:::{Nota}
+Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>.
+:::</p>
 <div class="section" id="unidades-de-comunicacion-basica-la-palabra-type-token-y-lema">
 <h2>Unidades de comunicación básica. La palabra. <em>Type</em>, <em>token</em> y lema.<a class="headerlink" href="#unidades-de-comunicacion-basica-la-palabra-type-token-y-lema" title="Permalink to this headline">¶</a></h2>
 <p>Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en Lingüística.</p>
 <p>En lingüística de corpus se trabaja con dos conceptos relacionados: <em>type</em> y <em>token</em>.</p>
 <ul class="simple">
 <li><p><em>Type</em> es la palabra entendida como clase. Una secuencia de caracteres que se diferencia de cualquier otra secuencia.</p></li>
-<li><p><em>Token</em> es cada una de las instancias concretas de esas clase que se pueden hallar en un texto[¹].</p></li>
+<li><p><em>Token</em> es cada una de las instancias concretas de esas clase que se pueden hallar en un texto <a class="footnote-reference brackets" href="#id4" id="id1">3</a>.</p></li>
 </ul>
 <p>Por ejemplo, en este verso de <a class="reference external" href="https://www.youtube.com/watch?v=dv958EeZXHc">una canción</a> del grupo de los 80 <em>Mecano</em></p>
 <blockquote>
-<div><p>“Una rosa es una rosa es”[²]</p>
+<div><p>“Una rosa es una rosa es” <a class="footnote-reference brackets" href="#id5" id="id2">4</a></p>
 </div></blockquote>
 <p>encontramos tres <em>types</em>:</p>
 <ul class="simple">
@@ -658,7 +654,7 @@
 <li><p>es (2)</p></li>
 </ul>
 <p>El tamaño del corpus se suele indicar en número de <em>tokens</em>.</p>
-<p>La tokenización más simple es separar las palabras por espacioes en blanco. Pero hay algunos problemas que deben ser tenidos en cuenta como:</p>
+<p>La tokenización más simple es separar las palabras por espacios en blanco. Pero hay algunos problemas que deben ser tenidos en cuenta como:</p>
 <ul class="simple">
 <li><p>signos de puntuación,</p></li>
 <li><p>unidades multipalabra (como formas complejas del verbo Ej. “he comido”) o</p></li>
@@ -775,12 +771,12 @@ Contextual: p(W|T|Ctx)</p>
 <p>Ejemplo:
 “Un verbo no va precedido de artículo”.</p>
 <p>Sistema ENGCG de 1990 (Karlsson et al 1995)</p>
+</div>
 <div class="section" id="modelos-basados-en-aprendizaje-automatico">
-<h4>Modelos basados en aprendizaje automático.<a class="headerlink" href="#modelos-basados-en-aprendizaje-automatico" title="Permalink to this headline">¶</a></h4>
+<h3>Modelos basados en aprendizaje automático.<a class="headerlink" href="#modelos-basados-en-aprendizaje-automatico" title="Permalink to this headline">¶</a></h3>
 <p>Sistemas supervisados. Aprendizaje a partir de un corpsu anotado a mano y validado por lingüistas.</p>
 <p>Diferentes algoritmos: árboles de decisión, vectores de soporte (SVM), etc.</p>
 <p>Ejemplo “Transformation-based Tagger” (Brill 1995). Proceso iterativo donde va aprendiendo reglas, cada vez más específicas. Analiza aplicando primero las específicas y luego las generales. Refinamiento: revisón manual de cada iteración.</p>
-</div>
 </div>
 <div class="section" id="situacion-actual">
 <h3>Situación actual<a class="headerlink" href="#situacion-actual" title="Permalink to this headline">¶</a></h3>
@@ -904,8 +900,8 @@ nltk.app.srparser()
 </pre></div>
 </div>
 </div>
-<div class="section" id="id1">
-<h3>Situación actual<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Situación actual<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p><em>Transition-based dependency parsing</em> (Nivre 2014). Algoritmo shift-reduce.</p>
 <p><em>Neural Network Dependency Parser</em>: <a class="reference external" href="https://nlp.stanford.edu/software/nndep.shtml">https://nlp.stanford.edu/software/nndep.shtml</a></p>
 <p>Modelo de dependencias universal: <a class="reference external" href="https://universaldependencies.org/"><em>Universal Dependencies</em></a>:</p>
@@ -925,8 +921,15 @@ nltk.app.srparser()
 <li><p>Karlsson, F., A. Voutilainen, J. Heikkilä, and A. Anttila (eds.). 1995. <em>Constraint Grammar. A language-independent system for parsing unrestricted text</em>. Berlin and New-York: Mouton de Gruyter</p></li>
 </ul>
 <hr class="docutils" />
-<p>[¹]: “Token” se asimila en este caso a “occurrence”. Cfr. <a class="reference external" href="https://plato.stanford.edu/entries/types-tokens/#Occ">https://plato.stanford.edu/entries/types-tokens/#Occ</a></p>
-<p>[²]: Este verso es una adaptación del verso de Gertrude Stein “A rose is a rose is a rose”. Ver <a class="reference external" href="https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa">https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa</a>.</p>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">3</a></span></dt>
+<dd><p>“Token” se asimila en este caso a “occurrence”. Cfr. <a class="reference external" href="https://plato.stanford.edu/entries/types-tokens/#Occ">https://plato.stanford.edu/entries/types-tokens/#Occ</a></p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">4</a></span></dt>
+<dd><p>Este verso es una adaptación del verso de Gertrude Stein “A rose is a rose is a rose”. Ver <a class="reference external" href="https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa">https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa</a>.</p>
+</dd>
+</dl>
 </div>
 </div>
 
