@@ -10,7 +10,7 @@ Si bien se suele utilizar como unidad mínima y básica de comunicación, la pal
 
 En lingüística de corpus se trabaja con dos conceptos relacionados: *type* y *token*.
 
-  - *Type* es la palabra entendida como casle. Una secuencia de caracteres que se diferencia de cualquier otra secuencia.  
+  - *Type* es la palabra entendida como clase. Una secuencia de caracteres que se diferencia de cualquier otra secuencia.  
   - *Token* es cada una de las instancias concretas de esas clase que se pueden hallar en un texto[¹].
 
 Por ejemplo, en este verso de [una canción](https://www.youtube.com/watch?v=dv958EeZXHc) del grupo de los 80 _Mecano_
