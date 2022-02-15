@@ -612,13 +612,35 @@
 <div class="section" id="unidades-de-comunicacion-basica-la-palabra-type-token-y-lema">
 <h2>Unidades de comunicación básica. La palabra. <em>Type</em>, <em>token</em> y lema.<a class="headerlink" href="#unidades-de-comunicacion-basica-la-palabra-type-token-y-lema" title="Permalink to this headline">¶</a></h2>
 <p>Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en Lingüística.</p>
-<p>En lingüística de corpus se trabaja con dos conceptos relacionados: <em>type</em> y <em>token</em>[¹].</p>
+<p>En lingüística de corpus se trabaja con dos conceptos relacionados: <em>type</em> y <em>token</em>.</p>
 <ul class="simple">
-<li><p><em>Token</em> es cada una de las secuencias de caracteres separadas por espacio en blanco.</p></li>
-<li><p><em>Type</em> son todos los <em>tokens</em> iguales.</p></li>
+<li><p><em>Type</em> es la palabra entendida como casle. Una secuencia de caracteres que se diferencia de cualquier otra secuencia.</p></li>
+<li><p><em>Token</em> es cada una de las instancias concretas de esas clase que se pueden hallar en un texto[¹].</p></li>
 </ul>
-<p>Así, para medir el tamaño del corpus se indica el número de <em>tokens</em> y el cálculo de frecuencias más simple que se puede hacer el la cantidad de <em>tokens</em> por cada <em>type</em>.</p>
-<p>La tokenización, aún así, presenta algunos aspectos que deben ser tenidos en cuenta como signos de puntuación, unidades multipalabra (como formas complejas del verbo Ej. “he comido”) o contracciones (“del”, “al”) y formas aglutinantes (“dáselo”).</p>
+<p>Por ejemplo, en este verso de <a class="reference external" href="https://www.youtube.com/watch?v=dv958EeZXHc">una canción</a> del grupo de los 80 <em>Mecano</em></p>
+<blockquote>
+<div><p>“Una rosa es una rosa es”[²]</p>
+</div></blockquote>
+<p>encontramos tres <em>types</em>:</p>
+<ul class="simple">
+<li><p>una</p></li>
+<li><p>rosa</p></li>
+<li><p>es</p></li>
+</ul>
+<p>pero seis <em>tokens</em>.</p>
+<p>El cálculo de frecuencas más simple que se puede hacer es contar la cantidad de <em>tokens</em> de cada <em>type</em>:</p>
+<ul class="simple">
+<li><p>una (2)</p></li>
+<li><p>rosa (2)</p></li>
+<li><p>es (2)</p></li>
+</ul>
+<p>El tamaño del corpus se suele indicar en número de <em>tokens</em>.</p>
+<p>La tokenización más simple es separar las palabras por espacioes en blanco. Pero hay algunos problemas que deben ser tenidos en cuenta como:</p>
+<ul class="simple">
+<li><p>signos de puntuación,</p></li>
+<li><p>unidades multipalabra (como formas complejas del verbo Ej. “he comido”) o</p></li>
+<li><p>contracciones (“del”, “al”) y en general formas aglutinantes (“dáselo”).</p></li>
+</ul>
 <p><em>Type</em> y <em>token</em> se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, “catamos” y “cantaré” son <em>tokens</em> distintos; al igual que “casa” y “casas”.</p>
 <p>Para agrupar todos los <em>tokens</em> relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de <em>lematización</em>. La lematización es asignar a cada palabra su forma no marcada: infinitivo para verbos, forma masculino singular para nombres y verbos (es decir, la forma que aparece en el diccionario). El lema es una manera de nombrar la palabra en toda su diversidad flexiva.</p>
 <p>La lematización es un fenómenos complejo porque es necesario analizar morfológicamente la palabra para determinar su lema. Ej. El lema del <em>token</em> “traje” puede ser “traer” (si es verbo) o “traje” (si es nombre).</p>
@@ -869,6 +891,7 @@ nltk.app.srparser()
 <p>Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>
 (Caps 12-14)</p>
 <p>[¹] “Token” se asimila en este caso a “occurrence”. Cfr. https://plato.stanford.edu/entries/types-tokens/#Occ</p>
+<p>[²] Este verso es una adaptación del verso de Gertrude Stein “A rose is a rose is a rose”. Ver <a class="reference external" href="https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa">https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa</a>.</p>
 </div>
 </div>
 

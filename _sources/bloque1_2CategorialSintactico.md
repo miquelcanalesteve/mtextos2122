@@ -6,14 +6,36 @@ Análisis categorial y sintáctico
 
 Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en Lingüística.
 
-En lingüística de corpus se trabaja con dos conceptos relacionados: *type* y *token*[¹].
+En lingüística de corpus se trabaja con dos conceptos relacionados: *type* y *token*.
 
-- *Token* es cada una de las secuencias de caracteres separadas por espacio en blanco.
-- *Type* son todos los *tokens* iguales.
+  - *Type* es la palabra entendida como casle. Una secuencia de caracteres que se diferencia de cualquier otra secuencia.  
+  - *Token* es cada una de las instancias concretas de esas clase que se pueden hallar en un texto[¹].
 
-Así, para medir el tamaño del corpus se indica el número de *tokens* y el cálculo de frecuencias más simple que se puede hacer el la cantidad de *tokens* por cada *type*.
+Por ejemplo, en este verso de [una canción](https://www.youtube.com/watch?v=dv958EeZXHc) del grupo de los 80 _Mecano_
 
-La tokenización, aún así, presenta algunos aspectos que deben ser tenidos en cuenta como signos de puntuación, unidades multipalabra (como formas complejas del verbo Ej. "he comido") o contracciones ("del", "al") y formas aglutinantes ("dáselo").
+> "Una rosa es una rosa es"[²]
+
+encontramos tres *types*:
+
+- una
+- rosa
+- es
+
+pero seis *tokens*.
+
+El cálculo de frecuencas más simple que se puede hacer es contar la cantidad de *tokens* de cada *type*:
+
+- una (2)
+- rosa (2)
+- es (2)
+
+El tamaño del corpus se suele indicar en número de *tokens*.
+
+La tokenización más simple es separar las palabras por espacioes en blanco. Pero hay algunos problemas que deben ser tenidos en cuenta como:
+
+- signos de puntuación,
+- unidades multipalabra (como formas complejas del verbo Ej. "he comido") o
+- contracciones ("del", "al") y en general formas aglutinantes ("dáselo").
 
 *Type* y *token* se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, "catamos" y "cantaré" son *tokens* distintos; al igual que "casa" y "casas".
 
@@ -299,3 +321,5 @@ Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford
 (Caps 12-14)
 
 [¹] "Token" se asimila en este caso a "occurrence". Cfr. https://plato.stanford.edu/entries/types-tokens/#Occ
+
+[²] Este verso es una adaptación del verso de Gertrude Stein "A rose is a rose is a rose". Ver [https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa](https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa).
