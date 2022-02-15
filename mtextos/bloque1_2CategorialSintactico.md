@@ -2,9 +2,10 @@
 Análisis categorial y sintáctico
 =================================
 
-:::{Nota}
+```{admonition} Nota
+:class: note
 Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
-:::
+```
 
 ## Unidades de comunicación básica. La palabra. *Type*, *token* y lema.
 
