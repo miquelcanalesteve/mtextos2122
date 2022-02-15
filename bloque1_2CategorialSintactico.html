@@ -272,6 +272,16 @@
    </em>
    y lema.
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lematizacion-y-stemming">
+     Lematización y
+     <em>
+      stemming
+     </em>
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#analisis-morfologico-y-categorial">
@@ -451,6 +461,16 @@
    </em>
    y lema.
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lematizacion-y-stemming">
+     Lematización y
+     <em>
+      stemming
+     </em>
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#analisis-morfologico-y-categorial">
@@ -609,6 +629,9 @@
                 
   <div class="section" id="analisis-categorial-y-sintactico">
 <span id="label-pos"></span><h1>Análisis categorial y sintáctico<a class="headerlink" href="#analisis-categorial-y-sintactico" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>.</p>
+</div></blockquote>
 <div class="section" id="unidades-de-comunicacion-basica-la-palabra-type-token-y-lema">
 <h2>Unidades de comunicación básica. La palabra. <em>Type</em>, <em>token</em> y lema.<a class="headerlink" href="#unidades-de-comunicacion-basica-la-palabra-type-token-y-lema" title="Permalink to this headline">¶</a></h2>
 <p>Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en Lingüística.</p>
@@ -642,12 +665,15 @@
 <li><p>contracciones (“del”, “al”) y en general formas aglutinantes (“dáselo”).</p></li>
 </ul>
 <p><em>Type</em> y <em>token</em> se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, “catamos” y “cantaré” son <em>tokens</em> distintos; al igual que “casa” y “casas”.</p>
+<div class="section" id="lematizacion-y-stemming">
+<h3>Lematización y <em>stemming</em><a class="headerlink" href="#lematizacion-y-stemming" title="Permalink to this headline">¶</a></h3>
 <p>Para agrupar todos los <em>tokens</em> relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de <em>lematización</em>. La lematización es asignar a cada palabra su forma no marcada: infinitivo para verbos, forma masculino singular para nombres y verbos (es decir, la forma que aparece en el diccionario). El lema es una manera de nombrar la palabra en toda su diversidad flexiva.</p>
 <p>La lematización es un fenómenos complejo porque es necesario analizar morfológicamente la palabra para determinar su lema. Ej. El lema del <em>token</em> “traje” puede ser “traer” (si es verbo) o “traje” (si es nombre).</p>
 <p>Un proceso similar pero más sencillo es el <em>stemming</em>: reducir cada <em>token</em> a su raíz o lexema (la parte invarible que, en principio, asume el significado general de la palabra).</p>
 <blockquote>
-<div><p>Reflexión: para minería de textos, ¿qué es mejor, dejar el corpus con los <em>tokens</em>, lematizarlo o trabajar solo con las raíces léxicas (<em>stemm</em>)?</p>
+<div><p><em>Reflexión:</em> para minería de textos, ¿qué es mejor, dejar el corpus con los <em>tokens</em>, lematizarlo o trabajar solo con las raíces léxicas (<em>stemm</em>)?</p>
 </div></blockquote>
+</div>
 </div>
 <div class="section" id="analisis-morfologico-y-categorial">
 <h2>Análisis morfológico y categorial.<a class="headerlink" href="#analisis-morfologico-y-categorial" title="Permalink to this headline">¶</a></h2>
@@ -657,11 +683,11 @@
 <li><p>categoría gramatical,</p></li>
 <li><p>rasgos morfológicos.</p></li>
 </ul>
-<p>El mayor problema viene en la selección de la categoría gramatical por los problemas de ambigüedad categorial que vimos en la sesión anterior.</p>
+<p>El mayor problema viene en la selección de la categoría gramatical por los problemas de <em>ambigüedad categorial</em> que vimos en la sesión anterior.</p>
 <div class="section" id="fundamentos-linguisticos-a-modo-de-recordatorio">
 <h3>Fundamentos lingüísticos (a modo de recordatorio).<a class="headerlink" href="#fundamentos-linguisticos-a-modo-de-recordatorio" title="Permalink to this headline">¶</a></h3>
 <p>Categorías gramaticales: agrupaciones de palabras (“paradigmas”) según sus rasgos distributivos, morfológicos y (en menor medida) semánticos.</p>
-<p>ESP: artículo, sustantivo, adjetivo, pronombre, verbo, adverbio, preposición, conjunción e interjección.</p>
+<p>ESP: determinantes (artículo, demostrativos, etc.), sustantivos, adjetivos, pronombres, verbos, adverbios, preposiciones, conjunciones e interjecciones.</p>
 <p>Por su función en el texto: categorías con significado léxico vs. “significado” gramatical (solo aportan información gramatical).</p>
 <p>Por su flexión: variables e invariables.</p>
 <p>Categorías abiertas vs cerradas.</p>
@@ -680,7 +706,7 @@
 </div>
 <div class="section" id="representacion-de-la-informacion-morfologica-y-categorial">
 <h3>Representación de la información morfológica y categorial<a class="headerlink" href="#representacion-de-la-informacion-morfologica-y-categorial" title="Permalink to this headline">¶</a></h3>
-<p>La información categorial y morfológica se representa explícitamente mediante juegos de etiquetas.</p>
+<p>La información categorial y morfológica se representa explícitamente mediante etiquetas.</p>
 <p>Actualmente hay diversas propuestas. Es necesario saber con qué juego de etiquetas representa la información el sistema de PoS que estemos utilizando par poder interpretar la información correctamente.</p>
 <p>Algunas propuestas:</p>
 <ul class="simple">
@@ -748,7 +774,7 @@ Contextual: p(W|T|Ctx)</p>
 <p>Las reglas son condicionales al contexto (si la palabra anterior es X, la siguiente NO es Y).</p>
 <p>Ejemplo:
 “Un verbo no va precedido de artículo”.</p>
-<p>Sistema ENGCG (1990)</p>
+<p>Sistema ENGCG de 1990 (Karlsson et al 1995)</p>
 <div class="section" id="modelos-basados-en-aprendizaje-automatico">
 <h4>Modelos basados en aprendizaje automático.<a class="headerlink" href="#modelos-basados-en-aprendizaje-automatico" title="Permalink to this headline">¶</a></h4>
 <p>Sistemas supervisados. Aprendizaje a partir de un corpsu anotado a mano y validado por lingüistas.</p>
@@ -842,13 +868,17 @@ SV → V (0.2)
 <p>Modelos de aprendizaje automático.</p>
 <p>Corpus de aprendizaje y evaluación: <em>treebanks</em></p>
 <ul class="simple">
-<li><p>Penn Treebank:</p></li>
+<li><p>Penn Treebank:</p>
+<ul>
+<li><p><a class="reference external" href="https://catalog.ldc.upenn.edu/LDC99T42">https://catalog.ldc.upenn.edu/LDC99T42</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/nltkdata/penn-tree-bank">https://www.kaggle.com/nltkdata/penn-tree-bank</a></p></li>
 </ul>
-<p><a class="reference external" href="https://catalog.ldc.upenn.edu/LDC99T42">https://catalog.ldc.upenn.edu/LDC99T42</a>
-<a class="reference external" href="https://www.kaggle.com/nltkdata/penn-tree-bank">https://www.kaggle.com/nltkdata/penn-tree-bank</a></p>
-<ul class="simple">
-<li><p>Ancora (español, catalán):
-<a class="reference external" href="http://clic.ub.edu/corpus/en/ancora-descarregues">http://clic.ub.edu/corpus/en/ancora-descarregues</a></p></li>
+</li>
+<li><p>Ancora (español, catalán):</p>
+<ul>
+<li><p><a class="reference external" href="http://clic.ub.edu/corpus/en/ancora-descarregues">http://clic.ub.edu/corpus/en/ancora-descarregues</a></p></li>
+</ul>
+</li>
 </ul>
 <p>Y muchos otros</p>
 </div>
@@ -856,12 +886,13 @@ SV → V (0.2)
 <div class="section" id="chunkers">
 <h3><em>Chunkers</em><a class="headerlink" href="#chunkers" title="Permalink to this headline">¶</a></h3>
 <p>En ocasiones el análisis sintáctico completo (<em>full parsing</em>) es complejo, consume mucho recurso y no suele obtener buenos resultados.</p>
-<p>Lo normal es realizar <em>análisis sintáctico parcial</em> o <em>chunkers</em>: extraer agrupaciones sintáticas (<em>chunks</em>) sin llegar a derivar el árbol sintáctico completo.</p>
+<p>Lo normal es realizar <em>análisis sintáctico parcial</em> o <em>chunkers</em>: extraer agrupaciones sintáticas (<em>chunks</em>) sin llegar a derivar el árbol sintáctico completo (Abney 1991).</p>
 </div>
 <div class="section" id="estrategias">
 <h3>Estrategias<a class="headerlink" href="#estrategias" title="Permalink to this headline">¶</a></h3>
 <p>Descendente:
 Recursive Descendent:</p>
+<p>(El siguiente código es Python y requiere tener instalado <a class="reference external" href="https://www.nltk.org/">NLTK</a>)</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import nltk
 nltk.app.rdparser()
 </pre></div>
@@ -877,7 +908,7 @@ nltk.app.srparser()
 <h3>Situación actual<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p><em>Transition-based dependency parsing</em> (Nivre 2014). Algoritmo shift-reduce.</p>
 <p><em>Neural Network Dependency Parser</em>: <a class="reference external" href="https://nlp.stanford.edu/software/nndep.shtml">https://nlp.stanford.edu/software/nndep.shtml</a></p>
-<p>Modelo de dependencias universal: <em>Universal Dependencies</em>:</p>
+<p>Modelo de dependencias universal: <a class="reference external" href="https://universaldependencies.org/"><em>Universal Dependencies</em></a>:</p>
 <blockquote>
 <div><p>The Universal Dependencies project (Nivre et al., 2016) provides an inventory of dependency relations that arelinguistically motivated, computationally useful, and cross-linguistically applicable. (Juravsky y Martin 2020, cap. 14)</p>
 </div></blockquote>
@@ -888,10 +919,14 @@ nltk.app.srparser()
 </div>
 <div class="section" id="bibliografia">
 <h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">¶</a></h2>
-<p>Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>
-(Caps 12-14)</p>
-<p>[¹] “Token” se asimila en este caso a “occurrence”. Cfr. https://plato.stanford.edu/entries/types-tokens/#Occ</p>
-<p>[²] Este verso es una adaptación del verso de Gertrude Stein “A rose is a rose is a rose”. Ver <a class="reference external" href="https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa">https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa</a>.</p>
+<ul class="simple">
+<li><p>Abney S.P. (1991) “Parsing By Chunks”. In: Berwick R.C., Abney S.P., Tenny C. (eds) Principle-Based Parsing. Studies in Linguistics and Philosophy, vol 44. Springer, Dordrecht. https://doi.org/10.1007/978-94-011-3474-3_10</p></li>
+<li><p>Juravsky y Martin (2020) <em>Speech and Language Processing</em>. <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a></p></li>
+<li><p>Karlsson, F., A. Voutilainen, J. Heikkilä, and A. Anttila (eds.). 1995. <em>Constraint Grammar. A language-independent system for parsing unrestricted text</em>. Berlin and New-York: Mouton de Gruyter</p></li>
+</ul>
+<hr class="docutils" />
+<p>[¹]: “Token” se asimila en este caso a “occurrence”. Cfr. <a class="reference external" href="https://plato.stanford.edu/entries/types-tokens/#Occ">https://plato.stanford.edu/entries/types-tokens/#Occ</a></p>
+<p>[²]: Este verso es una adaptación del verso de Gertrude Stein “A rose is a rose is a rose”. Ver <a class="reference external" href="https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa">https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa</a>.</p>
 </div>
 </div>
 
