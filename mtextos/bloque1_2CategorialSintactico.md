@@ -4,9 +4,9 @@ Análisis categorial y sintáctico
 
 ## Unidades de comunicación básica. La palabra. *Type*, *token* y lema.
 
-Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en la lingüística.
+Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en Lingüística.
 
-En lingüística de corpus se trabaja con dos conceptos relacionados: *type* y *token*.
+En lingüística de corpus se trabaja con dos conceptos relacionados: *type* y *token*[¹].
 
 - *Token* es cada una de las secuencias de caracteres separadas por espacio en blanco.
 - *Type* son todos los *tokens* iguales.
@@ -297,3 +297,5 @@ Representación vectorial (*embeddings*).
 
 Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/) 
 (Caps 12-14)
+
+[¹] "Token" se asimila en este caso a "occurrence". Cfr. https://plato.stanford.edu/entries/types-tokens/#Occ
