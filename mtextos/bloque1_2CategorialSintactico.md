@@ -308,6 +308,27 @@ Shift Reduce:
     import nltk
     nltk.app.srparser()
 
+
+### Formato CONLL
+
+Formato de salida estándar en análisis de dependencias. Además de la información morfológica, por cada palabra indica de quién depende y el tipo de dependencia.
+
+        Salida CoNLL-U
+        # sent_id = 1
+        # text = Los hombres que fuman puro tienen cara de canguro .
+        1   Los el  DET DET Definite=Def|Gender=Masc|Number=Plur|PronType=Art   2   det _   _
+        2   hombres hombre  NOUN    NOUN    Gender=Masc|Number=Plur 6   nsubj   _   _
+        3   que que PRON    PRON    PronType=Int,Rel    4   nsubj   _   _
+        4   fuman   fumar   VERB    VERB    Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin   2   acl _   _
+        5   puro    puro    ADJ ADJ Gender=Masc|Number=Sing 4   obj _   _
+        6   tienen  tener   VERB    VERB    Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin   0   root    _   _
+        7   cara    cara    NOUN    NOUN    Gender=Fem|Number=Sing  6   obj _   _
+        8   de  de  ADP ADP _   9   case    _   _
+        9   canguro canguro NOUN    NOUN    Gender=Masc|Number=Sing 7   nmod    _   _
+        10  .   .   PUNCT   PUNCT   PunctType=Peri  6   punct   _   _
+
+
+
 ### Situación actual
 
 *Transition-based dependency parsing* (Nivre 2014). Algoritmo shift-reduce.
