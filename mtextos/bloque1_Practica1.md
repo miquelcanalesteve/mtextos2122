@@ -57,7 +57,7 @@ Dado que el corpus está en GitHub, se puede clonar el repo y abrir los ficheros
 
 ## Amplicación 1
 
-Realizar análisis de dependencias del corpus con SpaCy y extraer en formato CONLL.
+Realizar análisis de dependencias del corpus con SpaCy y extraer en formato CONLL. Desde SpaCy se puede utilizar STANZA y UD-Pipe.
 
 Documentación:
 - [https://spacy.io/universe/project/spacy-conll](https://spacy.io/universe/project/spacy-conll)
