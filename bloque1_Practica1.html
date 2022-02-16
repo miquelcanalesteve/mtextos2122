@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introducción a la minería de datos. Fundamentos de PLN. Práctica 1. &#8212; Minería de Textos</title>
+    <title>Práctica 1. &#8212; Minería de Textos</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -125,7 +125,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Introducción a la minería de datos. Fundamentos de PLN. Práctica 1.
+     Práctica 1.
     </a>
    </li>
    <li class="toctree-l2">
@@ -282,6 +282,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#amplicacion-1">
+   Amplicación 1
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -292,7 +297,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introducción a la minería de datos. Fundamentos de PLN. Práctica 1.</h1>
+                <h1>Práctica 1.</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -329,6 +334,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#amplicacion-1">
+   Amplicación 1
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -338,19 +348,19 @@
             
               <div>
                 
-  <div class="section" id="introduccion-a-la-mineria-de-datos-fundamentos-de-pln-practica-1">
-<h1>Introducción a la minería de datos. Fundamentos de PLN. Práctica 1.<a class="headerlink" href="#introduccion-a-la-mineria-de-datos-fundamentos-de-pln-practica-1" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="practica-1">
+<h1>Práctica 1.<a class="headerlink" href="#practica-1" title="Permalink to this headline">¶</a></h1>
 <p>Borja Navarro Colorado</p>
 <div class="section" id="objeto">
 <h2>Objeto<a class="headerlink" href="#objeto" title="Permalink to this headline">¶</a></h2>
-<p>El objetivo de esta práctica es crear un <em>script</em> que procese un texto más o menos amplio con las aplicaciones comunes del PLN:</p>
+<p>El objetivo de esta práctica es crear un <em>script</em> que procese un texto amplio con las aplicaciones comunes del PLN:</p>
 <ul class="simple">
 <li><p>lematización,</p></li>
 <li><p><em>PoS_tagger</em>,</p></li>
 <li><p><em>parser</em> de dependencias y</p></li>
 <li><p>detección de entidades nombradas.</p></li>
 </ul>
-<p>Para ello, se utilizará el <em>pipeline</em> básico de la herramienta de PLN <a class="reference external" href="https://spacy.io/">SpaCy</a>, herramieta esta de uso común en minería de textos por ser bastante óptima (si bien la calidad del análisis no es simpre el mejor). Con esta práctica aprenderás, así, los fundamentos de SpaCy como herramienta de PLN para preprocesar corpus para minería de textos.</p>
+<p>Para ello, se utilizará el <em>pipeline</em> básico de la herramienta de PLN <a class="reference external" href="https://spacy.io/">SpaCy</a>.</p>
 </div>
 <div class="section" id="herramientas">
 <h2>Herramientas<a class="headerlink" href="#herramientas" title="Permalink to this headline">¶</a></h2>
@@ -371,7 +381,7 @@
 <li><p>novelas en portugués: <a class="reference external" href="https://github.com/COST-ELTeC/ELTeC-por/tree/master/level1">https://github.com/COST-ELTeC/ELTeC-por/tree/master/level1</a></p></li>
 <li><p>etc…</p></li>
 </ul>
-<p>Dado que el corpus está en GitHub, se puede descargar y procesar directamente desde COLAB.</p>
+<p>Dado que el corpus está en GitHub, se puede clonar el repo y abrir los ficheros directamente  directamente desde COLAB.</p>
 </div>
 <div class="section" id="documentacion">
 <h2>Documentación<a class="headerlink" href="#documentacion" title="Permalink to this headline">¶</a></h2>
@@ -389,23 +399,30 @@
 <h3>Por pasos:<a class="headerlink" href="#por-pasos" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Crear un cuaderno COLAB vacío.</p></li>
-<li><p>Importar SpaCy (Esto es fácil :) )</p></li>
-<li><p>Descargar los módulos SpaCy para el idioma elegido e importar.</p></li>
-<li><p>Asignar a una variable y crear así el <em>pipeline</em> de análisis.</p></li>
-<li><p>Descargar el corpus desde GitHub y abrir una única novela en la carpeta level1.</p></li>
+<li><p>Importar SpaCy, descargar el módulo de idioma elegido e importar.</p></li>
+<li><p>Clonar el corpus desde GitHub y abrir una única novela en la carpeta <em>level1</em>.</p></li>
 <li><p>Procesar el XML y extraer los párrafos:</p>
 <ul class="simple">
-<li><p>etiqueta “p”</p></li>
+<li><p>Los párrafos están marcados con la etiqueta “p”.</p></li>
 <li><p>para procesar XML en python, se recomienda por su sencillez <a class="reference external" href="https://beautiful-soup-4.readthedocs.io/en/latest/">Beautiful Soup</a></p></li>
 </ul>
 </li>
-<li><p>Analizar el texto con el <em>pipeline</em> básico de SpaCy y extraer “palabra | lema | categoria_gramatical”.</p></li>
-<li><p>Extraer los grupos nominales según el análisis de dependencias y ordenar por frecuencias de aparición.</p></li>
-<li><p>Extraer las entidades nombradas y ordenar por frecuencias de aparición.</p></li>
-<li><p>Crear un gráfico en COLAB donde se muestren la cantidad de nombres, adjetivos, verbos y adverbios.</p></li>
-<li><p>Entrega: enviar enlace del cuaderno COLAB al profesor.</p></li>
+<li><p>Analizar el texto con el <em>pipeline</em> básico de SpaCy y extraer un CSV con “palabra | lema | categoria_gramatical | tipo de dependencia sintáctica | palabra de quien depende “.</p></li>
+<li><p>Extraer los 10 grupos nominales más frecuentes (opcional: mostrar en un gráfico).</p></li>
+<li><p>Extraer las 10 entidades nombradas más frecuentes (opcional: mostrar en un gráfico).</p></li>
+<li><p>(Opcional) Crear un gráfico en COLAB donde se muestren la cantidad de nombres, adjetivos, verbos y adverbios.</p></li>
+<li><p>Entrega: enviar enlace del cuaderno COLAB al profesor mediante la opción “Entrega de prácticas” de la UA-Nube (<em>UA-Cloud</em>).</p></li>
 </ol>
 </div>
+</div>
+<div class="section" id="amplicacion-1">
+<h2>Amplicación 1<a class="headerlink" href="#amplicacion-1" title="Permalink to this headline">¶</a></h2>
+<p>Realizar análisis de dependencias del corpus con SpaCy y extraer en formato CONLL.</p>
+<p>Documentación:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://spacy.io/universe/project/spacy-conll">https://spacy.io/universe/project/spacy-conll</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BramVanroy/spacy_conll">https://github.com/BramVanroy/spacy_conll</a></p></li>
+</ul>
 </div>
 </div>
 
